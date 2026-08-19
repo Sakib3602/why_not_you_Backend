@@ -1,0 +1,344 @@
+{
+  "instrumentSlug": "cfi-bd",
+  "instrumentName": { "bn": "ক্যারিয়ার ফিট ইনভেন্টরি — বাংলাদেশ", "en": "Career Fit Inventory - Bangladesh" },
+  "version": "6.0",
+  "scoringType": "vector_matching",
+  "language": "bilingual",
+  "estimatedMinutes": [25, 40],
+  "itemCount": 100,
+  "scoredItemCount": 88,
+
+  "riasecOrder": ["R", "I", "A", "S", "E", "C"],
+  "valueOrder": ["SEC", "INC", "PRS", "SRV", "AUT", "BAL"],
+  "typeLabels_bn": { "R": "বাস্তবধর্মী", "I": "অনুসন্ধানী", "A": "শিল্পমনস্ক", "S": "সামাজিক", "E": "উদ্যোগী", "C": "সুশৃঙ্খল" },
+  "valueLabels_bn": { "SEC": "নিরাপত্তা ও স্থিতিশীলতা", "INC": "আয় ও পদোন্নতি", "PRS": "সামাজিক মর্যাদা", "SRV": "সেবা ও অবদান", "AUT": "স্বাধীনতা ও সৃজনশীলতা", "BAL": "ভারসাম্য ও সুস্থতা" },
+
+  "parts": {
+    "A": { "name_bn": "আগ্রহ (Interest)", "itemsPerScale": 8, "scale": "likert5", "scored": true },
+    "B": { "name_bn": "আত্মবিশ্বাস (Confidence)", "itemsPerScale": 3, "scale": "likert5", "scored": true },
+    "C": { "name_bn": "কর্মমূল্যবোধ (Values)", "itemsPerScale": 2, "scale": "likert5", "scored": true },
+    "D": { "name_bn": "কর্মশৈলী (Working Style)", "itemsPerFacet": 2, "scale": "yesno", "scored": true, "reportedAs": "facetLevel(Low/Mixed/High)" },
+    "E": { "name_bn": "পারিপার্শ্বিক অবস্থা (Circumstances)", "itemCount": 12, "scale": "multipleChoice", "scored": false }
+  },
+
+  "scoreConversion": {
+    "formula": "100 * (raw - k) / (4 * k)",
+    "note_bn": "k = সেই স্কেলের আইটেম সংখ্যা। এটি শতাংশ, percentile নয়।"
+  },
+
+  "likertLabels": {
+    "A": { "1": "খুব অপছন্দ", "5": "খুব পছন্দ" },
+    "B": { "1": "একেবারেই আত্মবিশ্বাসী নই", "5": "সম্পূর্ণ আত্মবিশ্বাসী" },
+    "C": { "1": "মোটেই গুরুত্বপূর্ণ নয়", "5": "অত্যন্ত গুরুত্বপূর্ণ" }
+  },
+
+  "matchWeights": { "interest": 0.45, "confidence": 0.30, "values": 0.25 },
+  "matchBands": [
+    { "min": 75, "label_bn": "প্রবল মিল", "label_en": "Strong fit" },
+    { "min": 65, "label_bn": "ভালো মিল", "label_en": "Good fit" },
+    { "min": 55, "label_bn": "অন্বেষণযোগ্য", "label_en": "Worth exploring" },
+    { "min": 0,  "label_bn": null, "show": false }
+  ],
+  "reportCaps": { "occupationListTop": 12, "pathwayTableTop": 5, "trainingClustersMax": 3, "crossSkillsMax": 3, "internationalClustersMax": 3 },
+
+  "clarity": {
+    "formula": "max(interest) - min(interest)",
+    "bands": [
+      { "max": 20, "verdict": "FLAT", "action": "suppress_occupation_list_show_exploration_prompt" },
+      { "max": 35, "verdict": "LOW", "action": "show_code_with_caution" },
+      { "max": 999, "verdict": "ADEQUATE", "action": "normal" }
+    ]
+  },
+  "coherence": {
+    "hexagonOrder": ["R", "I", "A", "S", "E", "C"],
+    "distanceToCoherence": { "1": 3, "2": 2, "3": 1 },
+    "note_bn": "d=1 প্রতিবেশী, d=2 এক ঘর দূরে, d=3 বিপরীত।"
+  },
+
+  "similarityFormula": {
+    "steps": [
+      "centre both vectors on their own mean",
+      "dot = sum(p_i * o_i)",
+      "np = sqrt(sum(p_i^2)), no = sqrt(sum(o_i^2))",
+      "fit = 50 * (1 + dot/(np*no))  [np==0 or no==0 => fit=50]"
+    ],
+    "range": [0, 100],
+    "acceptanceNote": "all-1s, all-3s, all-5s respondent must yield fit = 50.00 exactly for every occupation (centring check)"
+  },
+
+  "interestConfidenceGap": {
+    "threshold": 12,
+    "highMsg_bn": "এটা করতে পারবেন বলে বিশ্বাস করেন, কিন্তু খুব একটা উপভোগ করেন না — এটা reserve-এ থাকা সামর্থ্য, দিকনির্দেশ নয়।",
+    "lowMsg_bn": "এটা সাধারণত সুযোগের অভাব, সামর্থ্যের অভাব না — বন্ধ দরজা নয়, পরখ করার মতো কিছু।"
+  },
+
+  "track": {
+    "sourceItem": "E1",
+    "trackBIndexes": [2, 3],
+    "note_bn": "Track বয়স থেকে নয়, শুধুমাত্র E1 উত্তর থেকে নির্ধারিত হবে।"
+  },
+
+  "validityChecks": [
+    { "rule": "more_than_5_of_88_unanswered", "action": "no_report" },
+    { "rule": "identical_answer_every_partA_item", "action": "no_report_flag" },
+    { "rule": "completed_under_10_minutes", "action": "report_flag_for_review" },
+    { "rule": "clarity_below_20", "action": "report_but_suppress_occupation_list" }
+  ],
+
+  "crossCuttingSkills": {
+    "order": ["english", "digital", "research", "communication", "trade"],
+    "maxSelected": 3,
+    "rules": {
+      "english":       { "trigger": "E6 in ['Basic','Can read but hesitate to speak']", "name_bn": "ইংরেজি ভাষা দক্ষতা", "provider": "British Council · EDGE · Muktopaath" },
+      "digital":       { "trigger": "E7 in ['Mobile phone only','Basic computer use']", "name_bn": "কম্পিউটার ও ডিজিটাল দক্ষতা", "provider": "Muktopaath · Bangladesh Computer Council" },
+      "research":      { "trigger": "interest.I >= 60", "name_bn": "পরিসংখ্যান ও গবেষণা পদ্ধতি", "provider": "university short courses · Muktopaath" },
+      "communication": { "trigger": "interest.S >= 60 OR interest.E >= 60", "name_bn": "যোগাযোগ ও উপস্থাপন দক্ষতা", "provider": "Bangladesh Institute of Management" },
+      "trade":         { "trigger": "E9 == 'Within 6 months'", "name_bn": "জাতীয় দক্ষতা সনদ", "provider": "National Skills Development Authority" }
+    }
+  },
+
+  "overseasGate": {
+    "wantsAbroad": "E5 == 'Overseas as well' OR E11 == 'Overseas employment'",
+    "routesFrom": "top6_matches_unique_clusters_present_in_international_map (max 3)",
+    "showIf": "routes.length > 0 AND (wantsAbroad OR routes.length >= 2)",
+    "scholarshipShowIf": "interest.I >= 60 OR confidence.I >= 60",
+    "englishFlagIf": "E6 in ['Basic','Can read but hesitate to speak']",
+    "fraudWarningMandatoryWhenShown": true,
+    "fraudWarning_bn": "বিদেশে চাকরির প্রস্তাব নেওয়ার আগে অবশ্যই BMET-এ এজেন্সি/নিয়োগকর্তা যাচাই করুন। বৈধ যাচাই ছাড়া কোনো অগ্রিম টাকা দেবেন না।"
+  },
+
+  "items": {
+    "A_partial_note": "উৎস স্ক্রিনশটে A7-A13, A43-A48 অনুপস্থিত — এই ৩৫টা আইটেম নিশ্চিত করা টেক্সট",
+    "A": [
+      {"id":"A1","type":"R","bn":"নষ্ট হয়ে যাওয়া মোবাইল ফোন বা ল্যাপটপ মেরামত করা।"},
+      {"id":"A2","type":"R","bn":"কারখানা বা ওয়ার্কশপে যন্ত্রপাতি চালানো ও রক্ষণাবেক্ষণ করা।"},
+      {"id":"A3","type":"R","bn":"খামার, মৎস্য প্রকল্প বা নার্সারিতে খোলা আকাশের নিচে কাজ করা।"},
+      {"id":"A4","type":"R","bn":"বাসা বা ভবনের বৈদ্যুতিক লাইন স্থাপন বা মেরামত করা।"},
+      {"id":"A5","type":"R","bn":"পেশার অংশ হিসেবে গাড়ি, নৌযান বা উড়োজাহাজ চালানো বা দিকনির্দেশনা দেওয়া।"},
+      {"id":"A6","type":"R","bn":"শারীরিকভাবে পরিশ্রমসাধ্য প্রশিক্ষণ ও মাঠ মহড়ায় অংশ নেওয়া।"},
+      {"id":"A14","type":"I","bn":"মাটি, পানি বা বাতাসের নমুনা পরীক্ষা করে ফলাফল ব্যাখ্যা করা।"},
+      {"id":"A15","type":"I","bn":"বাস্তব সমস্যা সমাধানের জন্য কম্পিউটার প্রোগ্রাম লেখা।"},
+      {"id":"A16","type":"I","bn":"যন্ত্র বিকল বা সিস্টেম অচল হওয়ার কারণ অনুসন্ধান করা।"},
+      {"id":"A17","type":"A","bn":"পোস্টার, লোগো বা বইয়ের প্রচ্ছদ ডিজাইন করা।"},
+      {"id":"A18","type":"A","bn":"গল্প, কবিতা বা নাটকের চিত্রনাট্য লেখা।"},
+      {"id":"A19","type":"A","bn":"দর্শকের সামনে সংগীত, নাটক বা নৃত্য পরিবেশন করা।"},
+      {"id":"A20","type":"A","bn":"সামাজিক যোগাযোগমাধ্যমের জন্য স্বল্পদৈর্ঘ্য চলচ্চিত্র বা ভিডিও কনটেন্ট তৈরি করা।"},
+      {"id":"A21","type":"A","bn":"পোশাক, বস্ত্র বা হস্তশিল্প নকশা করা।"},
+      {"id":"A22","type":"A","bn":"বাড়ি, অফিস বা প্রদর্শনীর অভ্যন্তরীণ সাজসজ্জার পরিকল্পনা করা।"},
+      {"id":"A23","type":"A","bn":"দৈনন্দিন কাজের অংশ হিসেবে ছবি আঁকা, চিত্রকর্ম বা ভাস্কর্য তৈরি করা।"},
+      {"id":"A24","type":"A","bn":"কঠিন অনুভূতি প্রকাশে সাহায্য করতে শিল্প, সংগীত বা নাটক ব্যবহার করা।"},
+      {"id":"A25","type":"S","bn":"স্কুল বা কলেজের শিক্ষার্থীদের কোনো বিষয় পড়ানো।"},
+      {"id":"A26","type":"S","bn":"মানসিকভাবে বিপর্যস্ত কাউকে পরামর্শ ও মানসিক সহায়তা দেওয়া।"},
+      {"id":"A27","type":"S","bn":"হাসপাতাল বা ক্লিনিকে রোগীর সেবা করা।"},
+      {"id":"A28","type":"S","bn":"গ্রামে গিয়ে মানুষের স্বাস্থ্য ও জীবনমান উন্নয়নে কাজ করা।"},
+      {"id":"A29","type":"S","bn":"জীবিকা নির্বাহের জন্য প্রাপ্তবয়স্কদের নতুন দক্ষতায় প্রশিক্ষণ দেওয়া।"},
+      {"id":"A30","type":"S","bn":"বিশেষ চাহিদাসম্পন্ন শিশুদের শিখতে ও বেড়ে উঠতে সহায়তা করা।"},
+      {"id":"A31","type":"S","bn":"দুই ব্যক্তির মধ্যে মতবিরোধ ন্যায়সঙ্গতভাবে মীমাংসা করা।"},
+      {"id":"A32","type":"S","bn":"কর্মদিবসের বেশিরভাগ সময় মানুষের কথা শোনা ও তাদের সাহায্য করায় ব্যয় করা।"},
+      {"id":"A33","type":"E","bn":"নিজের ব্যবসা শুরু করা ও পরিচালনা করা।"},
+      {"id":"A34","type":"E","bn":"কোনো ক্রেতাকে পণ্য বা সেবা কিনতে রাজি করানো।"},
+      {"id":"A35","type":"E","bn":"একটি দলের নেতৃত্ব দেওয়া এবং এর ফলাফলের দায়িত্ব নেওয়া।"},
+      {"id":"A36","type":"E","bn":"চুক্তি বা ব্যবসায়িক সমঝোতার দরকষাকষি করা।"},
+      {"id":"A37","type":"E","bn":"নিজের ভাবনায় শ্রোতাদের আস্থাশীল করতে জনসম্মুখে বক্তব্য দেওয়া।"},
+      {"id":"A38","type":"E","bn":"বড় সাফল্যের আশায় হিসাব করে ঝুঁকি নেওয়া।"},
+      {"id":"A39","type":"E","bn":"নতুন পণ্যের বিপণন প্রচারাভিযান পরিচালনা করা।"},
+      {"id":"A40","type":"E","bn":"এমন কর্তৃত্বপূর্ণ পদে থাকা যেখানে অন্যরা আপনার সিদ্ধান্ত মেনে চলে।"},
+      {"id":"A41","type":"C","bn":"আর্থিক হিসাব নির্ভুল ও হালনাগাদ রাখা।"},
+      {"id":"A42","type":"C","bn":"ফাইল, রেকর্ড ও ডকুমেন্ট পদ্ধতিগতভাবে গুছিয়ে রাখা।"}
+    ],
+    "B": [
+      {"id":"B1","type":"R","bn":"যন্ত্রপাতি ও মেশিন সঠিকভাবে ও নিরাপদে ব্যবহার করতে।"},
+      {"id":"B2","type":"R","bn":"দীর্ঘ সময় ধরে শারীরিক পরিশ্রমের কাজ করতে।"},
+      {"id":"B3","type":"R","bn":"যান্ত্রিক বা বৈদ্যুতিক ব্যবস্থা কীভাবে কাজ করে তা বুঝতে।"},
+      {"id":"B4","type":"I","bn":"উচ্চতর গণিত বা পরিসংখ্যান শিখতে।"},
+      {"id":"B5","type":"I","bn":"ছোট একটি গবেষণা ডিজাইন করতে ও এর তথ্য বিশ্লেষণ করতে।"},
+      {"id":"B6","type":"I","bn":"কম্পিউটার কোড লিখতে শিখতে।"},
+      {"id":"B7","type":"A","bn":"এমন সৃজনশীল কাজ তৈরি করতে যা অন্যরা প্রশংসা করবে।"},
+      {"id":"B8","type":"A","bn":"নির্দিষ্ট উত্তর নেই এমন অবস্থায় মৌলিক ধারণা বের করতে।"},
+      {"id":"B9","type":"A","bn":"ডিজাইন বা মিডিয়া সফটওয়্যার ভালোভাবে শিখতে।"},
+      {"id":"B10","type":"S","bn":"বিপর্যস্ত একজন মানুষকে বোঝানো যে তাকে বোঝা হয়েছে।"},
+      {"id":"B11","type":"S","bn":"কঠিন একটি বিষয় এমনভাবে ব্যাখ্যা করতে যাতে অন্যরা সহজে বুঝতে পারে।"},
+      {"id":"B12","type":"S","bn":"যাদের বাড়তি সাহায্য প্রয়োজন তাদের সঙ্গে ধৈর্য নিয়ে কাজ করতে।"},
+      {"id":"B13","type":"E","bn":"আমার প্রস্তাব গ্রহণে অন্যদের রাজি করাতে।"},
+      {"id":"B14","type":"E","bn":"সময়ের চাপে একটি দলকে লক্ষ্যের দিকে নেতৃত্ব দিতে।"},
+      {"id":"B15","type":"E","bn":"ছোট একটি প্রতিষ্ঠান লাভজনকভাবে পরিচালনা করতে।"},
+      {"id":"B16","type":"C","bn":"দীর্ঘ সময় ধরে সংখ্যা ও রেকর্ড নিয়ে নির্ভুলভাবে কাজ করতে।"},
+      {"id":"B17","type":"C","bn":"জটিল পদ্ধতি ভুল ছাড়া অনুসরণ করতে।"},
+      {"id":"B18","type":"C","bn":"নিজেকে গুছিয়ে রাখতে ও প্রতিটি সময়সীমা রক্ষা করতে।"}
+    ],
+    "C": [
+      {"id":"C1","value":"SEC","bn":"এমন একটি চাকরি যা সহজে হারানোর আশঙ্কা নেই।"},
+      {"id":"C2","value":"SEC","bn":"নিশ্চিত পেনশন ও নিয়মিত সুবিধা পাওয়া।"},
+      {"id":"C3","value":"INC","bn":"সমবয়সীদের তুলনায় বেশি আয় করা।"},
+      {"id":"C4","value":"INC","bn":"পদোন্নতি ও বেতন বৃদ্ধির সুস্পষ্ট সুযোগ থাকা।"},
+      {"id":"C5","value":"PRS","bn":"পরিবার ও সমাজ উচ্চ মর্যাদা দেয় এমন পেশায় কাজ করা।"},
+      {"id":"C6","value":"PRS","bn":"মর্যাদা ও জনস্বীকৃতির অধিকারী পদে অধিষ্ঠিত থাকা।"},
+      {"id":"C7","value":"SRV","bn":"এমন কাজ করা যা সরাসরি অন্য মানুষের জীবনমান উন্নত করে।"},
+      {"id":"C8","value":"SRV","bn":"দেশের উন্নয়নে অবদান রাখা।"},
+      {"id":"C9","value":"AUT","bn":"কখন ও কীভাবে কাজ করব তা নিজে ঠিক করতে পারা।"},
+      {"id":"C10","value":"AUT","bn":"নতুন ও সৃজনশীল পদ্ধতি চেষ্টা করার স্বাধীনতা থাকা।"},
+      {"id":"C11","value":"BAL","bn":"পরিবার, ধর্মীয় অনুশীলন, বিশ্রাম ও ব্যক্তিগত পছন্দের জন্য পর্যাপ্ত সময় পাওয়া।"},
+      {"id":"C12","value":"BAL","bn":"কম চাপ ও নির্ধারিত কর্মঘণ্টার কর্মক্ষেত্রে কাজ করা।"}
+    ],
+    "D": [
+      {"id":"D1","facet":"ORD","keyed":"Yes","bn":"আমি চলতে চলতে সিদ্ধান্ত নেওয়ার চেয়ে আগেই দিনের পরিকল্পনা করতে পছন্দ করি।"},
+      {"id":"D2","facet":"ORD","keyed":"No","bn":"কর্মক্ষেত্রে অতিরিক্ত বাঁধাধরা নিয়ম থাকলে আমি বিরক্ত বোধ করি।"},
+      {"id":"D3","facet":"SOC","keyed":"Yes","bn":"সারাদিন অনেক নতুন মানুষের সঙ্গে মিশলে আমি অনুপ্রাণিত বোধ করি।"},
+      {"id":"D4","facet":"SOC","keyed":"No","bn":"দীর্ঘ সময় একা থাকলেই আমি সবচেয়ে ভালো কাজ করি।"},
+      {"id":"D5","facet":"RES","keyed":"Yes","bn":"সময়সীমা খুব কাছে এলেও আমি শান্ত থাকতে পারি।"},
+      {"id":"D6","facet":"RES","keyed":"No","bn":"কাজ বা পড়ালেখায় কিছু ভুল হলে আমার ঘুম নষ্ট হয়।"},
+      {"id":"D7","facet":"NOV","keyed":"Yes","bn":"যে কাজের পদ্ধতি এখনও ঠিক হয়নি, সেরকম কাজ করতে আমার ভালো লাগে।"},
+      {"id":"D8","facet":"NOV","keyed":"No","bn":"যে পদ্ধতি ইতিমধ্যেই ভালো কাজ করছে, আমি সেটিই ব্যবহার করতে পছন্দ করি।"},
+      {"id":"D9","facet":"COP","keyed":"Yes","bn":"দলের কাজ সুষ্ঠুভাবে চালাতে আমি সাধারণত নিজের পছন্দ ছাড় দিই।"},
+      {"id":"D10","facet":"COP","keyed":"No","bn":"যে দলগত সিদ্ধান্তের সঙ্গে আমি একমত নই, সেটি মেনে নেওয়া আমার জন্য কঠিন।"}
+    ],
+    "E": [
+      {"id":"E1","bn":"আপনি এখন কোন পর্যায়ে আছেন?","options":["এইচএসসি/এ লেভেল শেষ করেছি (ট্র্যাক ক)","বর্তমানে বিশ্ববিদ্যালয়ে অধ্যয়নরত","স্নাতক শেষ করেছি (ট্র্যাক খ)","স্নাতকোত্তর শেষ করেছি (ট্র্যাক খ)"]},
+      {"id":"E5","bn":"সঠিক ক্যারিয়ারের জন্য আপনি কতদূর যেতে রাজি?","options":["শুধু নিজ জেলার মধ্যে","বাংলাদেশের যেকোনো স্থানে","দুর্গম পোস্টিংসহ যেকোনো স্থানে","বিদেশেও"]},
+      {"id":"E6","bn":"পড়াশোনা ও কাজের জন্য আপনার ইংরেজি দক্ষতা কেমন?","options":["প্রাথমিক","পড়তে পারি, বলতে দ্বিধা","বেশিরভাগ অবস্থায় স্বচ্ছন্দ","বলা ও লেখায় সাবলীল"]},
+      {"id":"E7","bn":"আপনার কম্পিউটার ও ডিজিটাল দক্ষতা কেমন?","options":["শুধু মোবাইল ফোন","প্রাথমিক কম্পিউটার ব্যবহার","অফিস সফটওয়্যারে স্বচ্ছন্দ","বিশেষায়িত সফটওয়্যার ব্যবহার করতে পারি"]},
+      {"id":"E9","bn":"আপনাকে কত দ্রুত উপার্জন শুরু করতে হবে?","options":["৬ মাসের মধ্যে","১-২ বছরের মধ্যে","পড়াশোনা শেষ হওয়ার পর","সময়ের কোনো চাপ নেই"]},
+      {"id":"E11","bn":"এই মুহূর্তে কোন খাত আপনাকে সবচেয়ে বেশি আকর্ষণ করে?","options":["সরকারি চাকরি","বেসরকারি প্রতিষ্ঠান","এনজিও / উন্নয়ন খাত","নিজস্ব ব্যবসা","প্রবাসে কর্মসংস্থান","এখনও সিদ্ধান্ত নিইনি"]}
+    ]
+  },
+
+  "occupations": [
+    {"code":"RIC","name_bn":"পুরকৌশলী","riasec":[90,72,15,15,15,58],"value":[75,80,85,70,50,45],"cluster":"Engineering & Technology"},
+    {"code":"RIC","name_bn":"বিদ্যুৎ ও ইলেকট্রনিক প্রকৌশলী","riasec":[90,72,15,15,15,58],"value":[75,85,85,65,50,50],"cluster":"Engineering & Technology"},
+    {"code":"RIC","name_bn":"যানপ্রকৌশলী","riasec":[90,72,15,15,15,58],"value":[70,80,80,60,50,50],"cluster":"Engineering & Technology"},
+    {"code":"RIC","name_bn":"বস্ত্র প্রকৌশলী","riasec":[90,72,15,15,15,58],"value":[70,80,75,60,50,45],"cluster":"Engineering & Technology"},
+    {"code":"RIC","name_bn":"নৌ-প্রকৌশলী","riasec":[90,72,15,15,15,58],"value":[70,90,80,50,45,30],"cluster":"Engineering & Technology"},
+    {"code":"RIC","name_bn":"এয়ারক্রাফট মেইনটেন্যান্স ইঞ্জিনিয়ার","riasec":[90,72,15,15,15,58],"value":[80,80,80,60,35,45],"cluster":"Engineering & Technology"},
+    {"code":"RCI","name_bn":"আইটি সাপোর্ট ও নেটওয়ার্ক প্রশাসক","riasec":[90,58,15,15,15,72],"value":[70,60,55,60,40,60],"cluster":"Information & Communication Technology"},
+    {"code":"RIE","name_bn":"বিমানবাহিনীর কমিশনড অফিসার","riasec":[90,72,15,15,58,30],"value":[95,70,95,85,35,35],"cluster":"Defence & Public Safety"},
+    {"code":"RES","name_bn":"নৌবাহিনীর কমিশনড অফিসার","riasec":[90,30,15,58,72,30],"value":[95,70,95,85,35,30],"cluster":"Defence & Public Safety"},
+    {"code":"RSE","name_bn":"ফায়ার সার্ভিস অফিসার","riasec":[90,30,15,72,58,30],"value":[90,50,80,95,35,35],"cluster":"Defence & Public Safety"},
+    {"code":"RSC","name_bn":"প্রাতিষ্ঠানিক প্রশিক্ষক","riasec":[90,30,15,72,15,58],"value":[75,55,60,90,50,70],"cluster":"Education & Training"},
+    {"code":"RSE","name_bn":"কৃষি সম্প্রসারণ কর্মকর্তা","riasec":[90,30,15,72,58,30],"value":[90,55,70,95,45,60],"cluster":"Agriculture & Natural Resources"},
+    {"code":"RIS","name_bn":"মৎস্য কর্মকর্তা","riasec":[90,72,15,58,15,30],"value":[88,55,65,90,45,60],"cluster":"Agriculture & Natural Resources"},
+    {"code":"RIS","name_bn":"পশুচিকিৎসক","riasec":[90,72,15,58,15,30],"value":[85,65,75,90,55,50],"cluster":"Agriculture & Natural Resources"},
+    {"code":"RAE","name_bn":"পেশাদার শেফ","riasec":[90,30,72,15,58,30],"value":[55,70,60,60,75,35],"cluster":"Hospitality & Tourism"},
+    {"code":"RIE","name_bn":"বাণিজ্যিক পাইলট","riasec":[90,72,15,15,58,30],"value":[65,95,95,55,45,35],"cluster":"Transport, Logistics & Maritime"},
+    {"code":"RIE","name_bn":"মার্চেন্ট মেরিন অফিসার","riasec":[90,72,15,15,58,30],"value":[70,95,85,50,45,25],"cluster":"Transport, Logistics & Maritime"},
+    {"code":"RCE","name_bn":"শিল্প প্রকৌশলী (RMG)","riasec":[90,30,15,15,58,72],"value":[70,80,70,55,45,40],"cluster":"Manufacturing & RMG"},
+    {"code":"RIC","name_bn":"চর্ম ও পাদুকা প্রযুক্তিবিদ","riasec":[90,72,15,15,15,58],"value":[65,75,60,55,50,50],"cluster":"Manufacturing & RMG"},
+    {"code":"REC","name_bn":"সাইট ইঞ্জিনিয়ার","riasec":[90,30,15,15,72,58],"value":[70,85,75,60,50,35],"cluster":"Construction & Skilled Trades"},
+    {"code":"RCI","name_bn":"জরিপকারী","riasec":[90,58,15,15,15,72],"value":[70,70,60,55,40,55],"cluster":"Construction & Skilled Trades"},
+    {"code":"RCE","name_bn":"দক্ষ কারিগর (ইলেকট্রিক্যাল/ওয়েল্ডিং/প্লাম্বিং)","riasec":[90,30,15,15,58,72],"value":[60,75,45,60,60,50],"cluster":"Construction & Skilled Trades"},
+    {"code":"RCE","name_bn":"প্রবাসী দক্ষ কর্মী","riasec":[90,30,15,15,58,72],"value":[55,85,50,55,45,40],"cluster":"Construction & Skilled Trades"},
+    {"code":"ISR","name_bn":"চিকিৎসক (এমবিবিএস)","riasec":[58,90,30,72,15,15],"value":[85,80,95,90,55,35],"cluster":"Health Science"},
+    {"code":"IRS","name_bn":"দন্ত শল্যচিকিৎসক","riasec":[72,90,30,58,15,15],"value":[80,80,85,85,65,50],"cluster":"Health Science"},
+    {"code":"ICR","name_bn":"ফার্মাসিস্ট","riasec":[58,90,30,15,15,72],"value":[75,75,75,80,50,60],"cluster":"Health Science"},
+    {"code":"IRC","name_bn":"মেডিকেল ল্যাব প্রযুক্তিবিদ","riasec":[72,90,30,15,15,58],"value":[70,50,55,80,35,60],"cluster":"Health Science"},
+    {"code":"ISE","name_bn":"জনস্বাস্থ্য বিশেষজ্ঞ","riasec":[30,90,30,72,58,15],"value":[70,70,75,95,60,60],"cluster":"Health Science"},
+    {"code":"IAE","name_bn":"নগর পরিকল্পনাবিদ","riasec":[30,90,72,15,58,15],"value":[70,65,75,80,60,55],"cluster":"Engineering & Technology"},
+    {"code":"IRS","name_bn":"কৃষিবিজ্ঞানী","riasec":[72,90,30,58,15,15],"value":[85,60,75,90,55,60],"cluster":"Engineering & Technology"},
+    {"code":"IRS","name_bn":"পরিবেশ বিজ্ঞানী","riasec":[72,90,30,58,15,15],"value":[65,65,70,90,60,60],"cluster":"Engineering & Technology"},
+    {"code":"IAR","name_bn":"গবেষক বিজ্ঞানী","riasec":[58,90,72,15,15,15],"value":[70,60,85,85,80,60],"cluster":"Engineering & Technology"},
+    {"code":"IRC","name_bn":"সফটওয়্যার ইঞ্জিনিয়ার","riasec":[72,90,30,15,15,58],"value":[65,90,80,55,70,55],"cluster":"Information & Communication Technology"},
+    {"code":"ICR","name_bn":"ডাটা সায়েন্টিস্ট / এআই ইঞ্জিনিয়ার","riasec":[58,90,30,15,15,72],"value":[60,95,85,60,70,55],"cluster":"Information & Communication Technology"},
+    {"code":"ICR","name_bn":"সাইবার নিরাপত্তা বিশ্লেষক","riasec":[58,90,30,15,15,72],"value":[70,90,80,70,55,45],"cluster":"Information & Communication Technology"},
+    {"code":"ICE","name_bn":"ফ্রিল্যান্সার","riasec":[30,90,30,15,58,72],"value":[35,80,55,50,95,70],"cluster":"Information & Communication Technology"},
+    {"code":"ICE","name_bn":"আর্থিক বিশ্লেষক","riasec":[30,90,30,15,58,72],"value":[65,90,80,45,60,45],"cluster":"Finance, Business & Administration"},
+    {"code":"ICE","name_bn":"সহকারী জজ","riasec":[30,90,30,15,58,72],"value":[95,75,95,85,50,45],"cluster":"Government & Public Service"},
+    {"code":"ICE","name_bn":"বাংলাদেশ ব্যাংক অফিসার","riasec":[30,90,30,15,58,72],"value":[95,80,90,70,45,60],"cluster":"Government & Public Service"},
+    {"code":"ICI","name_bn":"পরিসংখ্যানবিদ","riasec":[30,58,30,15,15,72],"value":[90,55,70,80,45,70],"cluster":"Government & Public Service"},
+    {"code":"ISA","name_bn":"বিশ্ববিদ্যালয় শিক্ষক","riasec":[30,90,58,72,15,15],"value":[85,70,95,90,80,65],"cluster":"Education & Training"},
+    {"code":"ICS","name_bn":"মনিটরিং ও মূল্যায়ন কর্মকর্তা","riasec":[30,90,30,58,15,72],"value":[65,75,70,80,55,60],"cluster":"Human Services & Development"},
+    {"code":"AIR","name_bn":"স্থপতি","riasec":[58,72,90,30,15,15],"value":[65,80,90,65,80,45],"cluster":"Engineering & Technology"},
+    {"code":"AIE","name_bn":"ইউআই/ইউএক্স ডিজাইনার","riasec":[15,72,90,30,58,15],"value":[55,80,70,55,85,65],"cluster":"Information & Communication Technology"},
+    {"code":"AES","name_bn":"সাংবাদিক","riasec":[15,30,90,58,72,15],"value":[45,60,80,90,80,35],"cluster":"Arts, Media & Communication"},
+    {"code":"ARE","name_bn":"গ্রাফিক্স ডিজাইনার","riasec":[72,30,90,30,58,15],"value":[50,65,60,45,90,65],"cluster":"Arts, Media & Communication"},
+    {"code":"AER","name_bn":"চলচ্চিত্র নির্মাতা","riasec":[58,30,90,30,72,15],"value":[35,65,75,55,95,45],"cluster":"Arts, Media & Communication"},
+    {"code":"ARE","name_bn":"ফ্যাশন ডিজাইনার","riasec":[72,30,90,30,58,15],"value":[55,70,70,45,85,55],"cluster":"Arts, Media & Communication"},
+    {"code":"ASE","name_bn":"সঙ্গীতশিল্পী","riasec":[15,30,90,72,58,15],"value":[25,55,80,60,95,40],"cluster":"Arts, Media & Communication"},
+    {"code":"ASI","name_bn":"আর্ট থেরাপিস্ট","riasec":[15,58,90,72,15,15],"value":[45,55,70,98,80,65],"cluster":"Arts, Media & Communication"},
+    {"code":"ARE","name_bn":"অন্তর্সজ্জা ডিজাইনার","riasec":[72,30,90,30,58,15],"value":[55,75,70,45,85,55],"cluster":"Arts, Media & Communication"},
+    {"code":"SIR","name_bn":"নার্স / নার্সিং অফিসার","riasec":[58,72,30,90,30,15],"value":[85,55,70,95,40,40],"cluster":"Health Science"},
+    {"code":"SIR","name_bn":"ফিজিওথেরাপিস্ট","riasec":[58,72,30,90,30,15],"value":[65,65,70,90,65,60],"cluster":"Health Science"},
+    {"code":"SIA","name_bn":"ক্লিনিক্যাল সাইকোলজিস্ট","riasec":[15,72,58,90,30,15],"value":[65,60,75,95,70,60],"cluster":"Health Science"},
+    {"code":"SIC","name_bn":"পুষ্টিবিদ","riasec":[15,72,30,90,30,58],"value":[65,60,65,90,55,65],"cluster":"Health Science"},
+    {"code":"SEC","name_bn":"মানবসম্পদ পেশাজীবী","riasec":[15,15,30,90,72,58],"value":[70,70,70,70,55,60],"cluster":"Finance, Business & Administration"},
+    {"code":"SIC","name_bn":"বিসিএস (শিক্ষা)","riasec":[15,72,30,90,30,58],"value":[95,55,85,90,55,70],"cluster":"Government & Public Service"},
+    {"code":"SAC","name_bn":"মাধ্যমিক বিদ্যালয় শিক্ষক","riasec":[15,15,72,90,30,58],"value":[80,45,70,95,50,75],"cluster":"Education & Training"},
+    {"code":"SAI","name_bn":"বিশেষ শিক্ষা শিক্ষক","riasec":[15,58,72,90,30,15],"value":[70,45,65,98,55,70],"cluster":"Education & Training"},
+    {"code":"SAE","name_bn":"প্রাক-প্রাথমিক শিক্ষক","riasec":[15,15,72,90,58,15],"value":[65,40,55,95,60,80],"cluster":"Education & Training"},
+    {"code":"SEC","name_bn":"সমাজকর্মী","riasec":[15,15,30,90,72,58],"value":[70,45,60,98,55,65],"cluster":"Human Services & Development"},
+    {"code":"SEC","name_bn":"এনজিও প্রোগ্রাম অফিসার","riasec":[15,15,30,90,72,58],"value":[60,65,70,95,60,55],"cluster":"Human Services & Development"},
+    {"code":"SAI","name_bn":"কাউন্সেলিং সাইকোলজিস্ট","riasec":[15,58,72,90,30,15],"value":[60,60,75,98,75,65],"cluster":"Human Services & Development"},
+    {"code":"SEI","name_bn":"জেন্ডার ও উন্নয়ন বিশেষজ্ঞ","riasec":[15,58,30,90,72,15],"value":[60,70,75,95,65,60],"cluster":"Human Services & Development"},
+    {"code":"EAS","name_bn":"ডিজিটাল মার্কেটিং বিশেষজ্ঞ","riasec":[15,15,72,58,90,30],"value":[50,75,65,55,80,60],"cluster":"Information & Communication Technology"},
+    {"code":"EAS","name_bn":"বিপণন ব্যবস্থাপক","riasec":[15,15,72,58,90,30],"value":[60,85,80,50,70,45],"cluster":"Finance, Business & Administration"},
+    {"code":"ESR","name_bn":"উদ্যোক্তা","riasec":[58,15,15,72,90,30],"value":[30,90,75,70,95,40],"cluster":"Finance, Business & Administration"},
+    {"code":"ESC","name_bn":"বিসিএস (প্রশাসন)","riasec":[15,15,15,72,90,58],"value":[98,65,98,85,45,45],"cluster":"Government & Public Service"},
+    {"code":"ESA","name_bn":"বিসিএস (পররাষ্ট্র)","riasec":[15,15,58,72,90,30],"value":[95,75,98,80,50,40],"cluster":"Government & Public Service"},
+    {"code":"ESR","name_bn":"বিসিএস (পুলিশ)","riasec":[58,15,15,72,90,30],"value":[95,65,90,85,40,30],"cluster":"Government & Public Service"},
+    {"code":"ERS","name_bn":"সেনাবাহিনীর কমিশনড অফিসার","riasec":[72,15,15,58,90,30],"value":[95,70,95,90,35,30],"cluster":"Defence & Public Safety"},
+    {"code":"ESA","name_bn":"আইনজীবী","riasec":[15,15,58,72,90,30],"value":[55,80,90,85,85,35],"cluster":"Law & Justice"},
+    {"code":"ECS","name_bn":"কর্পোরেট আইন পরামর্শক","riasec":[15,15,15,58,90,72],"value":[75,85,80,55,55,55],"cluster":"Law & Justice"},
+    {"code":"ESA","name_bn":"যোগাযোগ ও জনসংযোগ কর্মকর্তা","riasec":[15,15,58,72,90,30],"value":[60,70,70,60,65,60],"cluster":"Arts, Media & Communication"},
+    {"code":"ERC","name_bn":"কৃষি উদ্যোক্তা","riasec":[72,15,15,30,90,58],"value":[40,80,60,80,90,45],"cluster":"Agriculture & Natural Resources"},
+    {"code":"ESC","name_bn":"হোটেল ব্যবস্থাপক","riasec":[15,15,15,72,90,58],"value":[60,70,70,65,50,40],"cluster":"Hospitality & Tourism"},
+    {"code":"ESA","name_bn":"ট্রাভেল ও টুর অপারেটর","riasec":[15,15,58,72,90,30],"value":[45,70,60,60,85,50],"cluster":"Hospitality & Tourism"},
+    {"code":"ECS","name_bn":"অ্যাপারেল মার্চেন্ডাইজার","riasec":[15,15,15,58,90,72],"value":[60,85,65,45,55,35],"cluster":"Manufacturing & RMG"},
+    {"code":"CIE","name_bn":"চার্টার্ড অ্যাকাউন্ট্যান্ট","riasec":[30,72,15,15,58,90],"value":[85,95,90,55,55,35],"cluster":"Finance, Business & Administration"},
+    {"code":"CIE","name_bn":"কস্ট অ্যান্ড ম্যানেজমেন্ট অ্যাকাউন্ট্যান্ট","riasec":[30,72,15,15,58,90],"value":[85,85,80,55,55,45],"cluster":"Finance, Business & Administration"},
+    {"code":"CES","name_bn":"ব্যাংকার (প্রোবেশনারি অফিসার)","riasec":[30,15,15,58,72,90],"value":[90,75,85,60,35,45],"cluster":"Finance, Business & Administration"},
+    {"code":"CER","name_bn":"সাপ্লাই চেইন অফিসার","riasec":[58,15,15,15,72,90],"value":[70,75,65,50,45,50],"cluster":"Finance, Business & Administration"},
+    {"code":"CIE","name_bn":"বীমা পেশাজীবী","riasec":[30,72,15,15,58,90],"value":[75,80,70,60,45,55],"cluster":"Finance, Business & Administration"},
+    {"code":"CER","name_bn":"লজিস্টিকস ব্যবস্থাপক","riasec":[58,15,15,15,72,90],"value":[65,80,65,50,50,45],"cluster":"Transport, Logistics & Maritime"},
+    {"code":"CRI","name_bn":"মাননিয়ন্ত্রণ কর্মকর্তা","riasec":[72,58,15,15,30,90],"value":[70,70,65,75,40,50],"cluster":"Manufacturing & RMG"}
+  ],
+
+  "training": {
+    "Agriculture & Natural Resources":[{"bn":"যুব উন্নয়ন প্রশিক্ষণ","provider":"Department of Youth Development","kind":"free","dur":"১–৩ মাস"},{"bn":"কৃষি সম্প্রসারণ প্রশিক্ষণ","provider":"Department of Agricultural Extension","kind":"short","dur":"৩–৬ মাস"},{"bn":"কৃষিতে স্নাতক","provider":"Bangladesh Agricultural University","kind":"degree","dur":"৪ বছর"}],
+    "Arts, Media & Communication":[{"bn":"চারুকলা ও নকশা কোর্স","provider":"Bangladesh Shilpakala Academy","kind":"short","dur":"৬ মাস–২ বছর"},{"bn":"ফটোগ্রাফি ও মিডিয়া প্রশিক্ষণ","provider":"Pathshala South Asian Media Institute","kind":"diploma","dur":"১–৩ বছর"},{"bn":"গ্রাফিক ডিজাইন (বিনামূল্যে)","provider":"Muktopaath · a2i","kind":"free","dur":"নিজের গতিতে"}],
+    "Construction & Skilled Trades":[{"bn":"জাতীয় দক্ষতা সনদ (লেভেল ১–৪)","provider":"NSDA","kind":"certificate","dur":"৩–১২ মাস"},{"bn":"কারিগরি প্রশিক্ষণ কেন্দ্রের কোর্স","provider":"BMET","kind":"short","dur":"৩–৬ মাস"},{"bn":"জরিপ ও নির্মাণ ডিপ্লোমা","provider":"BTEB","kind":"diploma","dur":"৪ বছর"}],
+    "Defence & Public Safety":[{"bn":"আইএসএসবি প্রস্তুতি","provider":"ISSB","kind":"short","dur":"৩–৬ মাস"}],
+    "Education & Training":[{"bn":"বিএড / এমএড","provider":"National University · BOU","kind":"degree","dur":"১–২ বছর"},{"bn":"এনটিআরসিএ নিবন্ধন প্রস্তুতি","provider":"NTRCA","kind":"certificate","dur":"৩–৬ মাস"},{"bn":"অন্তর্ভুক্তিমূলক ও বিশেষ শিক্ষা প্রশিক্ষণ","provider":"NAEM · BRAC IED","kind":"short","dur":"৩–৬ মাস"}],
+    "Engineering & Technology":[{"bn":"প্রকৌশলে ডিপ্লোমা","provider":"BTEB","kind":"diploma","dur":"৪ বছর"},{"bn":"অটোক্যাড ও শিল্প-প্রযুক্তি কোর্স","provider":"BITAC","kind":"short","dur":"৩–৬ মাস"},{"bn":"পেশাদার প্রকৌশলী নিবন্ধন","provider":"IEB","kind":"certificate","dur":"স্নাতকের পর"}],
+    "Finance, Business & Administration":[{"bn":"সিএ / সিএমএ পেশাগত সনদ","provider":"ICAB · ICMAB","kind":"certificate","dur":"৩–৫ বছর"},{"bn":"ব্যাংকিং ও অর্থায়ন প্রশিক্ষণ","provider":"BIBM","kind":"short","dur":"৩–৬ মাস"},{"bn":"ব্যবস্থাপনায় স্নাতকোত্তর ডিপ্লোমা","provider":"BIM","kind":"diploma","dur":"১ বছর"}],
+    "Government & Public Service":[{"bn":"বিসিএস প্রস্তুতি","provider":"BPSC","kind":"short","dur":"১–২ বছর"},{"bn":"সরকারি কর্মকর্তাদের বুনিয়াদি প্রশিক্ষণ","provider":"BPATC","kind":"certificate","dur":"যোগদানের পর"},{"bn":"পরিসংখ্যান ও তথ্য বিশ্লেষণ","provider":"BBS","kind":"short","dur":"৩ মাস"}],
+    "Health Science":[{"bn":"বিএসসি/ডিপ্লোমা ইন নার্সিং","provider":"BNMC","kind":"degree","dur":"৩–৪ বছর"},{"bn":"এমপিএইচ","provider":"NIPSOM · BRAC JPGSPH","kind":"degree","dur":"১–২ বছর"},{"bn":"কমিউনিটি স্বাস্থ্যকর্মী প্রশিক্ষণ","provider":"DGHS · BRAC","kind":"short","dur":"৩–৬ মাস"}],
+    "Hospitality & Tourism":[{"bn":"হোটেল ও পর্যটন ব্যবস্থাপনা কোর্স","provider":"NHTTI","kind":"diploma","dur":"৬ মাস–৪ বছর"},{"bn":"পেশাদার রন্ধন প্রশিক্ষণ","provider":"NHTTI","kind":"certificate","dur":"৬–১২ মাস"}],
+    "Human Services & Development":[{"bn":"শিশু বিকাশ সনদ","provider":"BRAC IED","kind":"certificate","dur":"৬–১২ মাস"},{"bn":"মনোসামাজিক কাউন্সেলিং প্রশিক্ষণ","provider":"BPA","kind":"short","dur":"৩–৬ মাস"},{"bn":"সমাজকল্যাণে স্নাতকোত্তর","provider":"University of Dhaka","kind":"degree","dur":"১–২ বছর"}],
+    "Information & Communication Technology":[{"bn":"সফটওয়্যার ও ডেটা কোর্স","provider":"BITM","kind":"short","dur":"৩–৬ মাস"},{"bn":"বিনামূল্যে আইসিটি কোর্স","provider":"Muktopaath","kind":"free","dur":"নিজের গতিতে"},{"bn":"কম্পিউটার প্রযুক্তিতে ডিপ্লোমা","provider":"BTEB","kind":"diploma","dur":"৪ বছর"}],
+    "Law & Justice":[{"bn":"বার কাউন্সিল তালিকাভুক্তি প্রস্তুতি","provider":"Bangladesh Bar Council","kind":"certificate","dur":"এলএলবির পর"},{"bn":"এলএলএম","provider":"universities","kind":"degree","dur":"১–২ বছর"}],
+    "Manufacturing & RMG":[{"bn":"অ্যাপারেল মার্চেন্ডাইজিং কোর্স","provider":"BUFT","kind":"short","dur":"৩–৬ মাস"},{"bn":"শিল্প প্রকৌশল ও লিন উৎপাদন","provider":"BITAC","kind":"short","dur":"৩ মাস"},{"bn":"মান ও কমপ্লায়েন্স প্রশিক্ষণ","provider":"BSTI","kind":"certificate","dur":"১–৩ মাস"}],
+    "Transport, Logistics & Maritime":[{"bn":"মেরিন ক্যাডেট প্রশিক্ষণ","provider":"Bangladesh Marine Academy","kind":"degree","dur":"২–৪ বছর"},{"bn":"বৈমানিক ও এএমই প্রশিক্ষণ","provider":"CAAB-approved academies","kind":"certificate","dur":"২–৪ বছর"}]
+  },
+
+  "international": {
+    "Agriculture & Natural Resources":[{"t":"জাপান ও দক্ষিণ কোরিয়া","auth":"BOESL · BMET","scope":"SSW ও EPS-এর আওতায় কৃষি/মৎস্য খাত উন্মুক্ত, ভাষাই প্রধান শর্ত।"}],
+    "Construction & Skilled Trades":[{"t":"দক্ষিণ কোরিয়া","auth":"BOESL","scope":"EPS-এর আওতায় বাংলাদেশ প্রেরণকারী দেশ।"},{"t":"জাপান","auth":"NSDA · BMET","scope":"নির্মাণ/ওয়েল্ডিং SSW-এর আওতায় উন্মুক্ত।"},{"t":"উপসাগরীয় দেশসমূহ","auth":"BMET","scope":"সনদধারী কর্মী বেশি আয় করেন।"}],
+    "Education & Training":[{"t":"উপসাগরীয় আন্তর্জাতিক স্কুল","auth":"DSHE","scope":"বিএড + ২-৩ বছর অভিজ্ঞতা সাধারণ শর্ত।"}],
+    "Engineering & Technology":[{"t":"উপসাগরীয় দেশসমূহ","auth":"IEB","scope":"সিভিল/ইলেকট্রিক্যাল/মেকানিক্যাল প্রকৌশলীর নিয়মিত চাহিদা।"}],
+    "Finance, Business & Administration":[{"t":"বিশ্বজুড়ে স্বীকৃত পেশাগত সনদ","auth":"ICAB","scope":"ACCA/CIMA/CFA বাংলাদেশ থেকেই পড়া যায়।"}],
+    "Health Science":[{"t":"যুক্তরাজ্য","auth":"NMC (UK)","scope":"নার্স/কেয়ার ওয়ার্কারের চাহিদা ধারাবাহিক।"},{"t":"জার্মানি","auth":"Make it in Germany","scope":"নার্সিং স্বীকৃত ঘাটতি-পেশা, জার্মান B1-B2 মূল শর্ত।"},{"t":"জাপান","auth":"BMET","scope":"কেয়ারগিভিং SSW-এর আওতায়।"},{"t":"উপসাগরীয় দেশসমূহ","auth":"BMET","scope":"বৃহত্তম গন্তব্য, দেশভেদে লাইসেন্স পরীক্ষা।"}],
+    "Hospitality & Tourism":[{"t":"সংযুক্ত আরব আমিরাত, কাতার, মালদ্বীপ","auth":"NHTTI","scope":"হোটেল/রিসোর্ট কাজ, তত্ত্বাবধায়ক পদে ওঠার সিঁড়ি।"}],
+    "Human Services & Development":[{"t":"আন্তর্জাতিক সংস্থা ও আইএনজিও","auth":"NGO Affairs Bureau","scope":"প্রথমে দেশের ভেতরে, পরে আঞ্চলিক পদায়ন।"}],
+    "Information & Communication Technology":[{"t":"বিদেশি ক্লায়েন্টের জন্য রিমোট কাজ","auth":"ICT Division","scope":"একমাত্র রুট যেখানে ভিসা লাগে না।"},{"t":"জাপান","auth":"BASIS · JETRO","scope":"জাপানি-ভাষা আইটি প্রশিক্ষণসহ দীর্ঘদিনের রুট।"},{"t":"জার্মানি ও ইউরোপীয় ইউনিয়ন","auth":"Make it in Germany","scope":"EU Blue Card বেতনসীমার ভিত্তিতে।"}],
+    "Transport, Logistics & Maritime":[{"t":"আন্তর্জাতিক বাণিজ্যিক নৌবহর","auth":"Department of Shipping","scope":"মেরিন একাডেমির সনদ বিশ্বজুড়ে গৃহীত।"}]
+  },
+
+  "scholarships": [
+    {"name":"ইরাসমাস মুন্ডুস জয়েন্ট মাস্টার্স","where":"ইউরোপীয় ইউনিয়ন","note":"সম্পূর্ণ অর্থায়িত, দুই বছর।"},
+    {"name":"শেভেনিং বৃত্তি","where":"যুক্তরাজ্য","note":"এক বছরের স্নাতকোত্তর, ~২ বছরের কর্ম-অভিজ্ঞতা লাগে।"},
+    {"name":"মেক্সট বৃত্তি","where":"জাপান","note":"সরকারি বৃত্তি, জাপান দূতাবাসের মাধ্যমে আবেদন।"},
+    {"name":"ডিএএডি বৃত্তি","where":"জার্মানি","note":"প্রকৌশল ও উন্নয়ন অধ্যয়নে শক্তিশালী।"},
+    {"name":"অস্ট্রেলিয়া অ্যাওয়ার্ডস","where":"অস্ট্রেলিয়া","note":"উন্নয়নসংশ্লিষ্ট ক্ষেত্র, দেশে ফেরার অঙ্গীকার প্রয়োজন।"}
+  ],
+
+  "fraudWarning_bn": "বিদেশে চাকরির প্রস্তাব নেওয়ার আগে অবশ্যই BMET-এ এজেন্সি/নিয়োগকর্তা যাচাই করুন। বৈধ যাচাই ছাড়া কোনো অগ্রিম টাকা দেবেন না।",
+
+  "dataStatus": {
+    "occupations": "COMPLETE - 85/85 from client source",
+    "training": "COMPLETE - all clusters from client source",
+    "international": "COMPLETE - 10/15 clusters (5 clusters have no overseas route by design)",
+    "items_partA": "PARTIAL - 35/48 (A7-A13, A43-A48 missing from source screenshots)",
+    "items_partB_C_D_E": "COMPLETE"
+  },
+
+  "scoringMustRunServerSide": true,
+  "paymentGate": { "unlocksAfter": "payment_success_callback" }
+}
