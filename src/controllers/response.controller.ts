@@ -9,7 +9,7 @@ import { computeScore } from "../utils/scoring/Index";
 export const submitResponse = async (req: Request, res: Response) => {
   try {
     const { slug } = req.params;
-    const { answers, consentAck, consentVersion } = req.body;
+    const { answers, personalInfo, consentAck, consentVersion } = req.body;
 
     const instrument = await Instrument.findOne({
       instrumentSlug: slug,
@@ -34,41 +34,32 @@ export const submitResponse = async (req: Request, res: Response) => {
     // এখনো middleware না বসালে userId undefined থাকবে — guest submission হিসেবে চলবে।
     const userId = (req as any).user?.userId;
 
-    // TODO: পেমেন্ট গেটওয়ে বসানোর পর নিচের লাইনটা আবার আগের মতো করে দিন:
-    // paymentStatus: instrument.price > 0 ? "pending" : "free",
     const response = await ResponseModel.create({
       instrumentSlug: slug,
       userId,
       answers,
+      personalInfo,
       computedResult,
       consentAck: !!consentAck,
       consentVersion,
-      paymentStatus: "free", // TEMP: পেমেন্ট বসানো পর্যন্ত সবসময় free ধরা হচ্ছে
+      paymentStatus: instrument.price > 0 ? "pending" : "free",
       submittedAt: new Date(),
     });
 
-    return res.status(201).json({
-      message: "Submitted successfully",
-      responseId: response._id,
-      result: computedResult,
-    });
+    if (response.paymentStatus === "free") {
+      return res.status(201).json({
+        message: "Submitted successfully",
+        responseId: response._id,
+        result: computedResult,
+      });
+    }
 
-    // TODO: পেমেন্ট গেটওয়ে বসানোর পর উপরের return বাদ দিয়ে নিচের কন্ডিশনাল লজিক আবার চালু করুন:
-    //
-    // if (response.paymentStatus === "free") {
-    //   return res.status(201).json({
-    //     message: "Submitted successfully",
-    //     responseId: response._id,
-    //     result: computedResult,
-    //   });
-    // }
-    //
-    // return res.status(201).json({
-    //   message: "Submitted successfully, payment required to view result",
-    //   responseId: response._id,
-    //   paymentRequired: true,
-    //   amount: instrument.price,
-    // });
+    return res.status(201).json({
+      message: "Submitted successfully, payment required to view result",
+      responseId: response._id,
+      paymentRequired: true,
+      amount: instrument.price,
+    });
   } catch (error) {
     return res.status(500).json({
       message: "Server error",

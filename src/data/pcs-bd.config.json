@@ -1,0 +1,162 @@
+{
+  "instrumentSlug": "pcs-bd",
+  "instrumentName": { "bn": "অভিভাবক সক্ষমতা মাপনী", "en": "Parenting Capability Scale - Bangladesh (PCS-BD)" },
+  "version": "1.1",
+  "scoringType": "domain_pomp_composite",
+  "itemCount": 39,
+
+  "bnTextStatus": "TRANSLATED — এই বাংলা টেক্সট Claude ইংরেজি থেকে অনুবাদ করেছে, এটা client-এর মূল ফাইলের হুবহু wording না। client-এর আসল items.json পেলে replace করে দেবেন।",
+
+  "domains": {
+    "TP": { "name_bn": "সময় ও উপস্থিতি", "name_en": "Time & Presence", "itemCount": 5 },
+    "MS": { "name_bn": "আদর্শ আচরণ ও আত্মনিয়ন্ত্রণ", "name_en": "Modelling & Self-Regulation", "itemCount": 5 },
+    "MG": { "name_bn": "নৈতিক ও চারিত্রিক দিকনির্দেশনা", "name_en": "Moral & Character Guidance", "itemCount": 5 },
+    "AS": { "name_bn": "শিক্ষা ও বিকাশে সহায়তা", "name_en": "Academic & Developmental Support", "itemCount": 5 },
+    "KA": { "name_bn": "সন্তানকে জানা", "name_en": "Knowing the Child (Attunement)", "itemCount": 5 },
+    "CO": { "name_bn": "যোগাযোগ ও আবেগীয় উন্মুক্ততা", "name_en": "Communication & Emotional Openness", "itemCount": 5 },
+    "MD": { "name_bn": "তত্ত্বাবধান, নিরাপত্তা ও ডিজিটাল সচেতনতা", "name_en": "Supervision, Safety & Digital Awareness", "itemCount": 5 }
+  },
+  "validityDomain": {
+    "code": "IM",
+    "name_bn": "ভাবমূর্তি ব্যবস্থাপনা সূচক",
+    "name_en": "Impression Management",
+    "itemCount": 4
+  },
+
+  "responseScale": {
+    "min": 0, "max": 4,
+    "labelsShownAsText": true,
+    "labels": [
+      { "value": 0, "en": "Never", "bn": "কখনো না" },
+      { "value": 1, "en": "Rarely", "bn": "খুব কম" },
+      { "value": 2, "en": "Sometimes", "bn": "মাঝে মাঝে" },
+      { "value": 3, "en": "Often", "bn": "প্রায়ই" },
+      { "value": 4, "en": "Almost always", "bn": "প্রায় সবসময়" }
+    ]
+  },
+
+  "presentationOrder": [
+    "TP1","MS1","MG1","AS1","KA1","CO1","MD1","IM1","MS2","MG3",
+    "AS2","KA2","CO2","MD2","TP2","IM2","MG4","AS3","KA3","CO3",
+    "MD3","TP3","MS3","IM3","AS4","KA4","CO4","MD5","TP5","MS4",
+    "MG5","IM5","KA6","CO6","MD6","TP6","MS5","MG6","AS5"
+  ],
+  "orderIsFixed": true,
+  "orderNote": "এই ক্রম randomize/re-sort করা নিষেধ — এটা instrument-এর অংশ।",
+
+  "reverseKeyedItems": ["TP6","MS1","MS2","MS4","MS5","AS5","KA6","CO6","MD6"],
+
+  "safeguardingFlags": {
+    "note": "flag ফায়ার হয় recoded value ≤ 1 হলে (uniform rule)",
+    "items": ["MS1", "MS4", "MS5", "CO3", "MD3", "MD5"]
+  },
+
+  "items": [
+    { "id": "TP1", "domain": "TP", "reverse": false, "flag": false, "text_en": "I set aside at least 30 minutes a day for my child with my full attention — no phone, no television, no other work.", "text_bn": "আমি প্রতিদিন অন্তত ৩০ মিনিট আমার সন্তানের জন্য পুরো মনোযোগ দিয়ে সময় রাখি — তখন ফোন, টিভি বা অন্য কোনো কাজ থাকে না।" },
+    { "id": "TP2", "domain": "TP", "reverse": false, "flag": false, "text_en": "We sit together as a family for at least one meal a day.", "text_bn": "দিনে অন্তত একবেলা আমরা পরিবারের সবাই একসাথে বসে খাই।" },
+    { "id": "TP3", "domain": "TP", "reverse": false, "flag": false, "text_en": "I take my child outside the home — playground, park, a relative's house, a restaurant or similar outings.", "text_bn": "আমি সন্তানকে নিয়ে বাসার বাইরে ঘুরতে যাই — যেমন খেলার মাঠ, পার্ক, আত্মীয়ের বাড়ি, রেস্টুরেন্ট বা এ ধরনের কোথাও।" },
+    { "id": "TP5", "domain": "TP", "reverse": false, "flag": false, "text_en": "I do some activity together with my child — play, drawing, cooking, gardening, sport or a shared hobby.", "text_bn": "সন্তানের সাথে মিলে আমি কিছু একটা করি — যেমন খেলা, আঁকা, রান্না, বাগান করা, খেলাধুলা বা পছন্দের কোনো শখের কাজ।" },
+    { "id": "TP6", "domain": "TP", "reverse": true,  "flag": false, "text_en": "My work or other responsibilities leave me with almost no time for my child.", "text_bn": "কাজের চাপ বা অন্যান্য দায়িত্বের কারণে সন্তানের জন্য আমার হাতে প্রায় কোনো সময়ই থাকে না।" },
+
+    { "id": "MS1", "domain": "MS", "reverse": true,  "flag": true, "text_en": "I argue or quarrel loudly with my spouse or other family members in front of my child.", "text_bn": "সন্তানের সামনেই আমি স্বামী/স্ত্রী বা বাসার অন্য কারো সাথে জোরে ঝগড়া করি।" },
+    { "id": "MS2", "domain": "MS", "reverse": true,  "flag": false, "text_en": "I stay busy with my phone or social media while my child is with me or talking to me.", "text_bn": "সন্তান আমার পাশে থাকলে বা আমার সাথে কথা বললেও আমি ফোন বা সোশ্যাল মিডিয়া নিয়ে ব্যস্ত থাকি।" },
+    { "id": "MS3", "domain": "MS", "reverse": false, "flag": false, "text_en": "I keep the promises I make to my child.", "text_bn": "সন্তানকে কোনো কথা দিলে আমি সেটা রাখি।" },
+    { "id": "MS4", "domain": "MS", "reverse": true,  "flag": true, "text_en": "My child sees me tell small lies — to guests, on the phone, or to get out of a situation.", "text_bn": "মেহমানের সামনে, ফোনে বা কোনো ঝামেলা এড়াতে আমাকে ছোটখাটো মিথ্যা বলতে সন্তান দেখে ফেলে।" },
+    { "id": "MS5", "domain": "MS", "reverse": true,  "flag": true, "text_en": "When I am angry I shout, use harsh words, or strike out physically.", "text_bn": "রাগ উঠলে আমি চিৎকার করি, কড়া কথা বলি বা গায়ে হাত তুলি।" },
+
+    { "id": "MG1", "domain": "MG", "reverse": false, "flag": false, "text_en": "I talk with my child about honesty — including what to do when telling the truth is difficult or costly.", "text_bn": "সততা নিয়ে আমি সন্তানের সাথে কথা বলি, এমনকি সত্য বলাটা যখন কঠিন বা ক্ষতিকর, তখন কী করা উচিত সেটাও বলি।" },
+    { "id": "MG3", "domain": "MG", "reverse": false, "flag": false, "text_en": "I give my child specific responsibilities at home and follow up on whether they were done.", "text_bn": "বাসায় আমি সন্তানকে নির্দিষ্ট কিছু দায়িত্ব দিই এবং সেটা করেছে কিনা খেয়াল রাখি।" },
+    { "id": "MG4", "domain": "MG", "reverse": false, "flag": false, "text_en": "We discuss right and wrong using real incidents — news, the neighbourhood, family events — not only instructions.", "text_bn": "শুধু উপদেশ না দিয়ে, খবরে দেখা বা আশপাশে ঘটা সত্যিকারের ঘটনা ধরে আমরা ভালো-মন্দ নিয়ে কথা বলি।" },
+    { "id": "MG5", "domain": "MG", "reverse": false, "flag": false, "text_en": "I teach my child civic behaviour — not littering, obeying traffic rules, being fair, helping others.", "text_bn": "যেখানে-সেখানে ময়লা না ফেলা, ট্রাফিক নিয়ম মানা, অন্যের সাথে ন্যায্য আচরণ করা আর বিপদে সাহায্য করা — এসব আমি সন্তানকে শেখাই।" },
+    { "id": "MG6", "domain": "MG", "reverse": false, "flag": false, "text_en": "I praise my child's honesty and good conduct as much as I praise good marks.", "text_bn": "ভালো রেজাল্টের জন্য যেমন প্রশংসা করি, সন্তানের সততা আর ভালো ব্যবহারের জন্যও তেমনই প্রশংসা করি।" },
+
+    { "id": "AS1", "domain": "AS", "reverse": false, "flag": false, "text_en": "I personally check my child's homework, notebooks or study progress, rather than leaving it entirely to a tutor.", "text_bn": "পুরোটা প্রাইভেট টিউটরের ওপর ছেড়ে না দিয়ে সন্তানের পড়া আর খাতা আমি নিজে দেখি।" },
+    { "id": "AS2", "domain": "AS", "reverse": false, "flag": false, "text_en": "I contact my child's teacher to find out how he or she is doing.", "text_bn": "সন্তান পড়াশোনায় কেমন করছে তা জানতে আমি ওর শিক্ষকের সাথে কথা বলি।" },
+    { "id": "AS3", "domain": "AS", "reverse": false, "flag": false, "text_en": "I encourage my child in activities beyond studies — sport, art, music, debate, scouts or guides, recitation.", "text_bn": "পড়াশোনার বাইরেও খেলাধুলা, আঁকা, গান, বিতর্ক, স্কাউট বা আবৃত্তির মতো কাজে আমি সন্তানকে উৎসাহ দিই।" },
+    { "id": "AS4", "domain": "AS", "reverse": false, "flag": false, "text_en": "I can say clearly which subject my child is strongest in and which one he or she struggles with.", "text_bn": "কোন বিষয়ে আমার সন্তান ভালো আর কোন বিষয়ে দুর্বল, তা আমি স্পষ্ট করে বলতে পারি।" },
+    { "id": "AS5", "domain": "AS", "reverse": true,  "flag": false, "text_en": "I compare my child's results with other children's in a way that shames him or her.", "text_bn": "অন্য বাচ্চাদের রেজাল্টের সাথে তুলনা করে আমি সন্তানকে ছোট করি।" },
+
+    { "id": "KA1", "domain": "KA", "reverse": false, "flag": false, "text_en": "I can name my child's closest friend and I know something about that friend's family.", "text_bn": "সন্তানের সবচেয়ে কাছের বন্ধুর নাম আমি জানি, আর সেই বন্ধুর পরিবার সম্পর্কেও কিছুটা জানি।" },
+    { "id": "KA2", "domain": "KA", "reverse": false, "flag": false, "text_en": "I know what my child currently wants to become in life.", "text_bn": "আমার সন্তান বড় হয়ে এখন কী হতে চায়, সেটা আমি জানি।" },
+    { "id": "KA3", "domain": "KA", "reverse": false, "flag": false, "text_en": "I know my child's special ability or talent, and what he or she feels proud of.", "text_bn": "আমার সন্তান কোন কাজটা ভালো পারে আর কোন বিষয় নিয়ে গর্ব করে, তা আমি জানি।" },
+    { "id": "KA4", "domain": "KA", "reverse": false, "flag": false, "text_en": "I can tell that my child is upset even before he or she tells me.", "text_bn": "সন্তানের মন খারাপ হলে ও মুখে বলার আগেই আমি বুঝতে পারি।" },
+    { "id": "KA6", "domain": "KA", "reverse": true,  "flag": false, "text_en": "If asked what worries my child most at present, I would not be able to answer.", "text_bn": "এই মুহূর্তে আমার সন্তানের সবচেয়ে বড় দুশ্চিন্তা কী, জিজ্ঞেস করলে আমি বলতে পারব না।" },
+
+    { "id": "CO1", "domain": "CO", "reverse": false, "flag": false, "text_en": "When something goes wrong, my child comes to me first.", "text_bn": "কোনো সমস্যা হলে আমার সন্তান আগে আমার কাছেই আসে।" },
+    { "id": "CO2", "domain": "CO", "reverse": false, "flag": false, "text_en": "When my child speaks, I listen right through without interrupting or immediately giving advice.", "text_bn": "সন্তান কথা বলার সময় আমি মাঝখানে না থামিয়ে, সাথে সাথে উপদেশ না দিয়ে পুরো কথাটা শুনি।" },
+    { "id": "CO3", "domain": "CO", "reverse": false, "flag": true, "text_en": "I talk with my child, in an age-appropriate way, about the bodily and emotional changes of growing up.", "text_bn": "বড় হওয়ার সময় শরীরে আর মনে যেসব পরিবর্তন আসে, তা নিয়ে আমি সন্তানের বয়স বুঝে কথা বলি।" },
+    { "id": "CO4", "domain": "CO", "reverse": false, "flag": false, "text_en": "My child can disagree with me without fear of being punished or humiliated.", "text_bn": "শাস্তি বা অপমানের ভয় ছাড়াই আমার সন্তান আমার কথার সাথে দ্বিমত করতে পারে।" },
+    { "id": "CO6", "domain": "CO", "reverse": true,  "flag": false, "text_en": "I brush my child's feelings aside as unimportant (\"this is nothing\", \"don't be silly\").", "text_bn": "\"এটা কিছু না\", \"এত বোকার মতো কোরো না\" বলে আমি সন্তানের মনের কথা উড়িয়ে দিই।" },
+
+    { "id": "MD1", "domain": "MD", "reverse": false, "flag": false, "text_en": "I know where my child is and who he or she is with when not at home.", "text_bn": "সন্তান বাইরে থাকলে কোথায় আছে আর কার সাথে আছে, তা আমি জানি।" },
+    { "id": "MD2", "domain": "MD", "reverse": false, "flag": false, "text_en": "Our family has clear, agreed rules about screen time and device use.", "text_bn": "মোবাইল, টিভি বা ডিভাইস কতক্ষণ চলবে, সে ব্যাপারে আমাদের পরিবারে সবার মেনে নেওয়া স্পষ্ট নিয়ম আছে।" },
+    { "id": "MD3", "domain": "MD", "reverse": false, "flag": true, "text_en": "I know which apps or platforms my child uses, and we have talked about online risks.", "text_bn": "সন্তান কোন অ্যাপ বা কোন সাইট ব্যবহার করে তা আমি জানি, আর অনলাইনের বিপদ নিয়ে আমরা কথাও বলেছি।" },
+    { "id": "MD5", "domain": "MD", "reverse": false, "flag": true, "text_en": "I have taught my child about safe and unsafe touch, and what to do if anyone makes him or her uncomfortable.", "text_bn": "কোন স্পর্শ ভালো আর কোনটা খারাপ, আর কেউ অস্বস্তিকর কিছু করলে কী করতে হবে, এটা আমি সন্তানকে শিখিয়েছি।" },
+    { "id": "MD6", "domain": "MD", "reverse": true,  "flag": false, "text_en": "My child uses a phone or tablet for long stretches without my knowing what he or she is doing on it.", "text_bn": "আমার সন্তান অনেকক্ষণ ধরে ফোন বা ট্যাব চালায়, অথচ ও কী করছে তা আমি জানি না।" },
+
+    { "id": "IM1", "domain": "IM", "reverse": false, "flag": false, "text_en": "I have never once lost patience with my child.", "text_bn": "আমি কোনোদিন সন্তানের ওপর একটুও ধৈর্য হারাইনি।" },
+    { "id": "IM2", "domain": "IM", "reverse": false, "flag": false, "text_en": "I have never broken a single promise made to my child.", "text_bn": "সন্তানকে দেওয়া একটা কথাও আমি কোনোদিন ভাঙিনি।" },
+    { "id": "IM3", "domain": "IM", "reverse": false, "flag": false, "text_en": "I have never spoken to my child in a tone I later regretted.", "text_bn": "এমন সুরে আমি কোনোদিন সন্তানের সাথে কথা বলিনি, যার জন্য পরে খারাপ লেগেছে।" },
+    { "id": "IM5", "domain": "IM", "reverse": false, "flag": false, "text_en": "My phone has never distracted me at a moment when my child needed me.", "text_bn": "সন্তানের যখন আমাকে দরকার হয়েছে, ফোন কোনোদিনই আমার মন সরাতে পারেনি।" }
+  ],
+
+  "missingDataRule": {
+    "minAnsweredPerDomain": 4,
+    "note": "৪-এর কম উত্তর দেওয়া ডোমেইন স্কোর করা হবে না। ৭টার মধ্যে ৫টার কম ডোমেইন স্কোর হলে composite দেখানো হবে না।",
+    "minScoredDomainsForComposite": 5,
+    "neverImputeZero": true
+  },
+
+  "bands": [
+    { "code": "B1", "min": 0,  "max": 40,  "label_en": "Needs Urgent Attention", "label_bn": "জরুরি মনোযোগ প্রয়োজন" },
+    { "code": "B2", "min": 40, "max": 55,  "label_en": "Needs Attention",        "label_bn": "মনোযোগ প্রয়োজন" },
+    { "code": "B3", "min": 55, "max": 70,  "label_en": "Developing",             "label_bn": "বিকাশমান" },
+    { "code": "B4", "min": 70, "max": 85,  "label_en": "Effective",              "label_bn": "কার্যকর" },
+    { "code": "B5", "min": 85, "max": 100, "label_en": "Highly Effective",       "label_bn": "অত্যন্ত কার্যকর" }
+  ],
+  "bandLookupInclusiveOfLowerBound": true,
+
+  "imBands": [
+    { "min": 0,  "max": 49,  "note_bn": null },
+    { "min": 50, "max": 74,  "note_bn": "কিছুটা নিজেকে আদর্শায়িত করে দেখানোর প্রবণতা থাকতে পারে; স্কোর সামান্য বেশি দেখাতে পারে।" },
+    { "min": 75, "max": 100, "note_bn": "নিজেকে অনেক বেশি আদর্শ হিসেবে দেখানোর প্রবণতা স্পষ্ট। প্রোফাইলটি সম্ভবত প্রকৃত আচরণের চেয়ে বেশি ইতিবাচক দেখাচ্ছে।", "prominent": true }
+  ],
+
+  "personalInfoFields": [
+    { "key": "name", "type": "text", "required": true, "label_en": "Name", "label_bn": "নাম" },
+    { "key": "email", "type": "email", "required": true, "label_en": "Email address", "label_bn": "ইমেইল" },
+    { "key": "role", "type": "singleChoice", "required": true, "label_en": "Parent role", "label_bn": "আপনি", "options": ["Father", "Mother"] },
+    { "key": "p_age", "type": "singleChoice", "required": true, "label_en": "Your age", "label_bn": "বয়স", "options": ["Under 25","25-29","30-34","35-39","40-44","45-49","50-54","55 or above"] },
+    { "key": "profession", "type": "text", "required": true, "label_en": "Profession", "label_bn": "পেশা" },
+    { "key": "nkids", "type": "singleChoice", "required": true, "label_en": "Number of children", "label_bn": "সন্তান সংখ্যা", "options": ["1","2","3","4","5 or more"] },
+    { "key": "child_ages", "type": "text", "required": true, "label_en": "Age of the children (e.g. 7, 12, 15)", "label_bn": "সন্তানদের বয়স (যেমন: ৭, ১২, ১৫)" },
+    { "key": "child_edu", "type": "multiSelect", "required": true, "label_en": "Education level of the children", "label_bn": "সন্তানদের শিক্ষাস্তর",
+      "options": ["Pre-school","Primary","Junior Secondary","Secondary (SSC)","Higher Secondary (HSC)","Undergraduate","Graduate or above"] },
+    { "key": "lang", "type": "singleChoice", "required": true, "label_en": "Report language", "label_bn": "রিপোর্টের ভাষা", "options": ["English", "Bangla", "Both"] }
+  ],
+
+  "consent": {
+    "required": true,
+    "text_en": "This is a tool for reflecting on your own parenting. It is not a medical diagnosis, not a legal or custody assessment, and not a judgement of your worth as a parent. Your answers stay private and the report is sent only to you.",
+    "text_bn": "এটি নিজের অভিভাবকত্ব নিয়ে ভাবার একটি সরঞ্জাম। এটি কোনো রোগ নির্ণয় নয়, আইনি বা অভিভাবকত্ব-সংক্রান্ত মূল্যায়ন নয়, আর অভিভাবক হিসেবে আপনি কতটা ভালো তার বিচারও নয়। আপনার উত্তর গোপন থাকবে এবং রিপোর্ট শুধু আপনাকেই পাঠানো হবে।"
+  },
+
+  "reportSections": [
+    "cover", "overall_picture", "seven_domain_profile", "domain_narrative",
+    "strengths_and_priorities", "thirty_day_plan", "development_points",
+    "social_media_section", "referral_directory"
+  ],
+  "narrativeContentStatus": "MISSING — domain-ভিত্তিক low/mid/high ব্যাখ্যা, action bank, social-media section, referral directory — এই কনটেন্ট client-এর content.json ফাইলে আছে কিন্তু এখনো পাঠানো হয়নি।",
+
+  "prohibitedUses_en": [
+    "custody, guardianship or any legal determination",
+    "child-protection investigations or removal decisions",
+    "employment, fostering or adoption screening",
+    "clinical diagnosis of a parent or a child",
+    "ranking, grading or publicly comparing parents"
+  ],
+  "marketingRestriction_en": "Must be described only as a self-assessment/reflection tool. Never describe as validated, standardised, clinically proven, or normed.",
+
+  "scoringMustRunServerSide": true,
+  "childIdentifyingDataProhibited": true
+}

@@ -4,9 +4,8 @@ dotenv.config();
 import mongoose from "mongoose";
 import fs from "fs";
 import path from "path";
+
 import Instrument from "../models/instrument.model";
-
-
 
 /**
  * রান করার কমান্ড (package.json-এ script যোগ করে):
@@ -17,9 +16,13 @@ async function seed() {
   await mongoose.connect(process.env.MONGO_URI as string);
   console.log("Connected to MongoDB");
 
+  // ⚠ সবগুলো এখন price:0 — সাইট প্রথমে ফ্রি চলবে, পেমেন্ট গেটওয়ে বসানোর পর
+  // এখানে price বদলে দিলেই সব instrument পেইড হয়ে যাবে, কোনো অন্য কোড টাচ করা লাগবে না।
   const files = [
-    { file: "cfi-bd.config.json", slug: "cfi-bd", scoringType: "vector_matching", price: 199 },
-    { file: "fadss.config.json", slug: "fadss", scoringType: "sum_and_band", price: 149 },
+    { file: "cfi-bd.config.json", slug: "cfi-bd", scoringType: "vector_matching", price: 0 },
+    { file: "fadss.config.json", slug: "fadss", scoringType: "sum_and_band", price: 0 },
+    { file: "pcs-bd.config.json", slug: "pcs-bd", scoringType: "domain_pomp_composite", price: 0 },
+    { file: "rrs-24.config.json", slug: "rrs-24", scoringType: "domain_mean_average", price: 0 },
   ];
 
   for (const f of files) {

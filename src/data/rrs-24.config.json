@@ -1,0 +1,127 @@
+{
+  "instrumentSlug": "rrs-24",
+  "instrumentName": { "bn": "দায়িত্বশীলতা ও নির্ভরযোগ্যতা স্কেল", "en": "Responsibility and Reliability Scale (RRS-24)" },
+  "version": "1.0",
+  "scoringType": "domain_mean_average",
+  "itemCount": 24,
+
+  "bnTextStatus": "CLEANED — উৎস টেক্সটে শব্দের মাঝে বাড়তি স্পেস ছিল (PDF এক্সট্র্যাকশন artifact, অক্ষর নিজেই ঠিক ছিল) — সেই বাড়তি স্পেস সরিয়ে পরিষ্কার করা হয়েছে, কোনো নতুন শব্দ যোগ করা হয়নি।",
+
+  "domains": {
+    "PR": { "name_bn": "ব্যক্তিগত দায়িত্বশীলতা", "name_en": "Personal Responsibility", "measures_bn": "নিজে যা দায়িত্ব নিয়েছেন তা পালন করা — কাজ শেষ করা, সময় রক্ষা করা, অজুহাতের বদলে ভুল স্বীকার করা।" },
+    "MR": { "name_bn": "নৈতিক দায়িত্বশীলতা", "name_en": "Moral Responsibility", "measures_bn": "সততা ও নীতিতে অটল থাকা, এমনকি কেউ না দেখলেও এবং তার মূল্য দিতে হলেও।" },
+    "SR": { "name_bn": "সামাজিক দায়িত্বশীলতা", "name_en": "Social Responsibility", "measures_bn": "পরিবার ও সমাজের প্রতি নির্ভরযোগ্য থাকা, সিদ্ধান্তে অন্যদের কথা বিবেচনা করা।" }
+  },
+
+  "responseScale": {
+    "min": 1, "max": 5,
+    "labels": [
+      { "value": 1, "en": "Strongly Disagree", "bn": "একেবারেই একমত নই" },
+      { "value": 2, "en": "Disagree", "bn": "একমত নই" },
+      { "value": 3, "en": "Neutral", "bn": "নিরপেক্ষ" },
+      { "value": 4, "en": "Agree", "bn": "একমত" },
+      { "value": 5, "en": "Strongly Agree", "bn": "সম্পূর্ণ একমত" }
+    ]
+  },
+
+  "presentationOrder": [
+    "PR1","MR3","SR5","PR4","MR2","SR1","PR3","SR8",
+    "MR5","PR7","SR3","MR1","PR6","MR8","SR4","PR2",
+    "MR6","SR7","PR8","MR4","SR2","PR5","MR7","SR6"
+  ],
+  "orderIsFixed": true,
+  "orderNote": "এলোমেলো করা নিষেধ — পাশাপাশি দুইটা আইটেম কখনো একই factor-এর না, reverse আইটেম ছড়ানো।",
+
+  "reverseKeyedItems": ["PR3","PR5","PR7","MR2","MR4","MR6","MR8","SR3","SR5","SR7"],
+  "reverseFormula": "recoded = 6 - raw",
+
+  "items": [
+    { "id": "PR1", "domain": "PR", "reverse": false, "text_en": "I complete the tasks I have taken responsibility for, even when no one is monitoring me.", "text_bn": "আমি যেসব কাজের দায়িত্ব নিয়েছি, তা সম্পন্ন করি — এমনকি কেউ আমাকে পর্যবেক্ষণ না করলেও।" },
+    { "id": "PR2", "domain": "PR", "reverse": false, "text_en": "When something goes wrong because of my own mistake, I admit it rather than blaming others.", "text_bn": "নিজের ভুলের কারণে যখন কিছু ভুল হয়, তখন অন্যকে দোষ না দিয়ে আমি তা স্বীকার করি।" },
+    { "id": "PR3", "domain": "PR", "reverse": true, "text_en": "I often put off important tasks until the last moment.", "text_bn": "আমি প্রায়ই গুরুত্বপূর্ণ কাজ শেষ মুহূর্ত পর্যন্ত ফেলে রাখি।" },
+    { "id": "PR4", "domain": "PR", "reverse": false, "text_en": "I plan my activities so that I can meet my commitments on time.", "text_bn": "আমি আমার কার্যক্রম এমনভাবে পরিকল্পনা করি, যাতে সময়মতো প্রতিশ্রুতি রক্ষা করতে পারি।" },
+    { "id": "PR5", "domain": "PR", "reverse": true, "text_en": "I make excuses instead of admitting that I did not do something properly.", "text_bn": "ঠিকমতো কোনো কাজ না করার কথা স্বীকার না করে আমি অজুহাত দেখাই।" },
+    { "id": "PR6", "domain": "PR", "reverse": false, "text_en": "I keep my promises even when keeping them becomes inconvenient.", "text_bn": "প্রতিশ্রুতি রক্ষা করা অসুবিধাজনক হয়ে উঠলেও আমি তা রক্ষা করি।" },
+    { "id": "PR7", "domain": "PR", "reverse": true, "text_en": "When a task becomes difficult, I give up without finishing it.", "text_bn": "কোনো কাজ কঠিন হয়ে গেলে আমি তা শেষ না করেই ছেড়ে দিই।" },
+    { "id": "PR8", "domain": "PR", "reverse": false, "text_en": "I fulfil my personal responsibilities without needing others to remind me.", "text_bn": "অন্যের স্মরণ করিয়ে দেওয়ার প্রয়োজন ছাড়াই আমি নিজের ব্যক্তিগত দায়িত্ব পালন করি।" },
+
+    { "id": "MR1", "domain": "MR", "reverse": false, "text_en": "I remain honest even when lying would benefit me and no one would find out.", "text_bn": "মিথ্যা বলা আমার জন্য লাভজনক হলেও এবং কেউ তা ধরতে না পারলেও, আমি সৎ থাকি।" },
+    { "id": "MR2", "domain": "MR", "reverse": true, "text_en": "I would be willing to break rules if I were certain I would not be caught.", "text_bn": "ধরা পড়ব না — এই নিশ্চয়তা থাকলে আমি নিয়ম ভাঙতে রাজি হতাম।" },
+    { "id": "MR3", "domain": "MR", "reverse": false, "text_en": "I refuse to take part in unethical acts even when others pressure me to do so.", "text_bn": "অন্যদের চাপ থাকলেও আমি অনৈতিক কাজে অংশ নিতে অস্বীকার করি।" },
+    { "id": "MR4", "domain": "MR", "reverse": true, "text_en": "Although I know the rules or the law, I sometimes break them when it suits me.", "text_bn": "নিয়ম বা আইন জানা সত্ত্বেও, সুবিধাজনক মনে হলে আমি মাঝে মধ্যে তা ভঙ্গ করি।" },
+    { "id": "MR5", "domain": "MR", "reverse": false, "text_en": "I have a strong commitment to doing what is morally right, even when it costs me.", "text_bn": "নৈতিকভাবে সঠিক কাজ করার প্রতি আমার দৃঢ় দায়বদ্ধতা রয়েছে, এমনকি তা আমার ক্ষতির কারণ হলেও।" },
+    { "id": "MR6", "domain": "MR", "reverse": true, "text_en": "I have justified small dishonesties to myself on the grounds that \"everyone does it\".", "text_bn": "\"সবাই তো এটা করে\" — এই যুক্তি দিয়ে আমি নিজের কাছে ছোটখাটো অসততাকে ন্যায্যতা দিয়েছি।" },
+    { "id": "MR7", "domain": "MR", "reverse": false, "text_en": "I hold firm to my own moral principles even when the people around me do not.", "text_bn": "আশপাশের মানুষ নৈতিক নীতি না মানলেও আমি নিজের নৈতিক নীতিতে অটল থাকি।" },
+    { "id": "MR8", "domain": "MR", "reverse": true, "text_en": "In some situations I would take unfair advantage if there were no risk of being caught.", "text_bn": "ধরা পড়ার কোনো ঝুঁকি না থাকলে, কিছু পরিস্থিতিতে আমি অনুচিত সুবিধা গ্রহণ করতাম।" },
+
+    { "id": "SR1", "domain": "SR", "reverse": false, "text_en": "My family and those close to me can depend on me to fulfil my responsibilities towards them.", "text_bn": "আমার পরিবার ও কাছের মানুষেরা তাদের প্রতি আমার দায়িত্ব পালনের ক্ষেত্রে আমার উপর নির্ভর করতে পারে।" },
+    { "id": "SR2", "domain": "SR", "reverse": false, "text_en": "When I witness wrongdoing, I report it to the appropriate authority rather than ignoring it.", "text_bn": "আমি প্রত্যক্ষ করা কোনো অনিয়ম বা অন্যায় উপেক্ষা না করে যথাযথ কর্তৃপক্ষকে তা জানাই।" },
+    { "id": "SR3", "domain": "SR", "reverse": true, "text_en": "I believe it is not my responsibility to get involved in social problems that do not affect me directly.", "text_bn": "যেসব সামাজিক সমস্যা আমাকে সরাসরি প্রভাবিত করে না, সেগুলোতে জড়ানো আমার দায়িত্ব নয় বলে আমি মনে করি।" },
+    { "id": "SR4", "domain": "SR", "reverse": false, "text_en": "When I have the opportunity, I actively contribute to social welfare or community work.", "text_bn": "সুযোগ পেলে আমি সমাজকল্যাণ বা সম্প্রদায়ের কাজে সক্রিয়ভাবে অবদান রাখি।" },
+    { "id": "SR5", "domain": "SR", "reverse": true, "text_en": "Even when I have the time, I avoid volunteering for social or community activities.", "text_bn": "সময় থাকা সত্ত্বেও আমি সামাজিক বা সম্প্রদায়মূলক কাজে স্বেচ্ছায় অংশগ্রহণ এড়িয়ে চলি।" },
+    { "id": "SR6", "domain": "SR", "reverse": false, "text_en": "When making important decisions, I consider the welfare of my family and community.", "text_bn": "গুরুত্বপূর্ণ সিদ্ধান্ত নেওয়ার সময় আমি আমার পরিবার ও সমাজের কল্যাণের কথা বিবেচনা করি।" },
+    { "id": "SR7", "domain": "SR", "reverse": true, "text_en": "I believe one should always look after one's own interests before helping others.", "text_bn": "আমি মনে করি, অন্যকে সাহায্য করার আগে সবসময় নিজের স্বার্থ দেখা উচিত।" },
+    { "id": "SR8", "domain": "SR", "reverse": false, "text_en": "I try to set a responsible example for others in my family or community.", "text_bn": "আমি আমার পরিবার বা সমাজের অন্যদের জন্য একটি দায়িত্বশীল দৃষ্টান্ত স্থাপনের চেষ্টা করি।" }
+  ],
+
+  "completenessRule": {
+    "allItemsRequired": true,
+    "note": "২৪টাই লাগবে — আংশিক উত্তর দিলে স্কোর করা যাবে না, কারণ ৮-এর কম আইটেম দিয়ে বের করা mean norms-এর সাথে তুলনাযোগ্য না।"
+  },
+
+  "roundingRule": "unrounded স্কোর দিয়ে band নির্ধারণ করতে হবে, শুধু দেখানোর সময় ২ দশমিকে round করতে হবে — আগে round করলে ভুল band আসতে পারে (Section 4-এর উদাহরণ: 2.375 unrounded হলে Very Low, round করে 2.38 হলে ভুল করে Low দেখাবে)।",
+
+  "bands": {
+    "PR": [
+      { "code": "very_low", "label_bn": "অত্যন্ত নিম্ন", "label_en": "Very Low", "max": 2.62 },
+      { "code": "low", "label_bn": "নিম্ন", "label_en": "Low", "min": 2.62, "max": 3.00 },
+      { "code": "average", "label_bn": "গড় / প্রত্যাশিত", "label_en": "Average", "min": 3.00, "max": 4.12 },
+      { "code": "high", "label_bn": "উচ্চ", "label_en": "High", "min": 4.12, "max": 4.75 },
+      { "code": "very_high", "label_bn": "অত্যন্ত উচ্চ", "label_en": "Very High", "min": 4.75 }
+    ],
+    "MR": [
+      { "code": "very_low", "label_bn": "অত্যন্ত নিম্ন", "label_en": "Very Low", "max": 2.50 },
+      { "code": "low", "label_bn": "নিম্ন", "label_en": "Low", "min": 2.50, "max": 3.00 },
+      { "code": "average", "label_bn": "গড় / প্রত্যাশিত", "label_en": "Average", "min": 3.00, "max": 4.12 },
+      { "code": "high", "label_bn": "উচ্চ", "label_en": "High", "min": 4.12, "max": 4.75 },
+      { "code": "very_high", "label_bn": "অত্যন্ত উচ্চ", "label_en": "Very High", "min": 4.75 }
+    ],
+    "SR": [
+      { "code": "very_low", "label_bn": "অত্যন্ত নিম্ন", "label_en": "Very Low", "max": 2.38 },
+      { "code": "low", "label_bn": "নিম্ন", "label_en": "Low", "min": 2.38, "max": 3.00 },
+      { "code": "average", "label_bn": "গড় / প্রত্যাশিত", "label_en": "Average", "min": 3.00, "max": 4.12 },
+      { "code": "high", "label_bn": "উচ্চ", "label_en": "High", "min": 4.12, "max": 4.75 },
+      { "code": "very_high", "label_bn": "অত্যন্ত উচ্চ", "label_en": "Very High", "min": 4.75 }
+    ],
+    "TOTAL": [
+      { "code": "very_low", "label_bn": "অত্যন্ত নিম্ন", "label_en": "Very Low", "max": 2.50 },
+      { "code": "low", "label_bn": "নিম্ন", "label_en": "Low", "min": 2.50, "max": 3.00 },
+      { "code": "average", "label_bn": "গড় / প্রত্যাশিত", "label_en": "Average", "min": 3.00, "max": 4.12 },
+      { "code": "high", "label_bn": "উচ্চ", "label_en": "High", "min": 4.12, "max": 4.75 },
+      { "code": "very_high", "label_bn": "অত্যন্ত উচ্চ", "label_en": "Very High", "min": 4.75 }
+    ]
+  },
+  "bandBoundaryRule": "score < max হলে সেই band-এ পড়ে (strict less-than, নিচের boundary inclusive, ওপরের boundary exclusive); সর্বশেষ ব্যান্ডে কোনো max নেই।",
+
+  "gapAnalysis": {
+    "formula": "max(subscale scores) - min(subscale scores), unrounded",
+    "bands": [
+      { "max": 0.50, "reading_bn": "একটি সমান প্রোফাইল। তিনটি ক্ষেত্রেই প্রায় একই মান বজায় আছে।" },
+      { "min": 0.50, "max": 0.75, "reading_bn": "লক্ষণীয় পার্থক্য। একটি ক্ষেত্র অন্যগুলোর চেয়ে শক্তিশালী — এটা স্বাভাবিক এবং উল্লেখ করার মতো।" },
+      { "min": 0.75, "reading_bn": "যথেষ্ট অসম প্রোফাইল। জীবনের এক অংশে যে মান বজায় রাখা হয়েছে, তা অন্য অংশে পৌঁছায়নি। সবচেয়ে দুর্বল ক্ষেত্রেই সবচেয়ে বেশি লাভের সুযোগ।" }
+    ]
+  },
+
+  "sampleNarrativeReference": {
+    "note": "এগুলো শুধু sample report থেকে পাওয়া উদাহরণ টেক্সট (High-PR, Average-MR/SR/Total) — পূর্ণাঙ্গ band-by-band narrative content bank (Very Low/Low/Very High সহ সবগুলোর জন্য) এখনো client থেকে পাওয়া যায়নি।",
+    "PR_high_bn": "আপনি ধারাবাহিকভাবে দায়িত্ব পালন করেন, এমনকি তা অসুবিধাজনক হলেও। মানুষ আপনার ওপর নির্ভর করে এবং সেই আস্থা যথার্থ। খেয়াল রাখার বিষয় হলো, নীরবে নিজের ভাগের চেয়ে বেশি কাজ কাঁধে তুলে নেওয়া।",
+    "MR_average_bn": "সাধারণ পরিস্থিতিতে আপনি সৎ আচরণ করেন — যা বেশিরভাগ মানুষই করেন এবং অধিকাংশ পরিস্থিতিতে যা প্রত্যাশিত। প্রকৃত পরীক্ষা আসে তখনই, যখন সৎ থাকার জন্য সত্যিকারের মূল্য দিতে হয়।",
+    "SR_average_bn": "আপনি পরিবার ও আশপাশের মানুষের প্রতি দায়িত্ব পালন করেন এবং সিদ্ধান্ত নেওয়ার সময় অন্যের কথা বিবেচনা করেন। এটি একটি স্থিতিশীল ও টেকসই অবস্থান।"
+  },
+
+  "reportStatus": "PARTIAL — স্কোর, ব্যান্ড, gap বিশ্লেষণ সম্পূর্ণ কাজ করবে। প্রতিটা ব্যান্ড-লেভেলের জন্য narrative + action-bullet কনটেন্ট client-এর কাছে চেয়ে নিতে হবে (PCS-BD-এর মতোই একই পরিস্থিতি)।",
+
+  "disclaimer_bn": "এই প্রতিবেদনটি আত্ম-প্রতিফলনের জন্য তৈরি। এটি কোনো ক্লিনিক্যাল নির্ণয় বা আনুষ্ঠানিক মূল্যায়ন নয়, এবং চাকরি বা নির্বাচন-সংক্রান্ত সিদ্ধান্তের ভিত্তি হিসেবে ব্যবহার করা উচিত নয়।",
+
+  "scoringMustRunServerSide": true
+}

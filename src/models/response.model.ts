@@ -6,6 +6,7 @@ export interface IResponse extends Document {
   instrumentSlug: string;
   userId?: Types.ObjectId;
   answers: Record<string, any>;
+  personalInfo?: Record<string, any>; // PCS-BD এর মতো instrument এ নাম/ইমেইল/পেশা ইত্যাদি
   computedResult?: Record<string, any>;
   consentAck: boolean;
   consentVersion?: string;
@@ -28,6 +29,10 @@ const responseSchema = new Schema<IResponse>(
     answers: {
       type: Schema.Types.Mixed,
       required: true,
+    },
+
+    personalInfo: {
+      type: Schema.Types.Mixed,
     },
 
     computedResult: {
