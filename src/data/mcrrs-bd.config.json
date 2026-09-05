@@ -1,0 +1,194 @@
+{
+  "instrumentSlug": "mcrrs-bd",
+  "instrumentName": { "bn": "বৈবাহিক সামঞ্জস্য ও সম্পর্ক-প্রস্তুতি স্কেল", "en": "Marriage Compatibility & Relationship Readiness Scale (MCRRS-BD)" },
+  "version": "1.0-P",
+  "scoringType": "mcrrs_triage",
+  "scopeNote": "MVP scope: শুধু Form M চালু। Form E/S item bank config এ আছে (ভবিষ্যতে UI যোগ করা যাবে)। PHQ-4 module ও rotating calibration block বাদ দেওয়া হয়েছে (ডকুমেন্টের নিজস্ব সতর্কতা মেনে)।",
+
+  "ageGate": {
+    "minAge": 18,
+    "question_bn": "আপনার বয়স কি ১৮ বছর বা তার বেশি?",
+    "question_en": "Are you 18 or older?",
+    "underageMessage_bn": "দুঃখিত, এই মূল্যায়নটি শুধুমাত্র প্রাপ্তবয়স্কদের জন্য।",
+    "underageHelplines": [
+      { "name_bn": "চাইল্ড হেল্পলাইন", "number": "1098" },
+      { "name_bn": "কান পেতে রই", "number": "09612-119911" }
+    ]
+  },
+
+  "consent": {
+    "required": true,
+    "text_bn": "এটি সম্পর্ক ও বিবাহ নিয়ে একটি আত্ম-অনুসন্ধানমূলক প্রশ্নমালা। সময় লাগবে প্রায় ৮ মিনিট। আপনার নাম, ফোন নম্বর, জাতীয় পরিচয়পত্র নম্বর কখনোই জানতে চাওয়া হয় না। শুধু আপনার বয়সসীমা, বৈবাহিক অবস্থা, সম্পর্কের স্থিতিকাল, বিভাগ, এবং প্রতিবেদন পাঠানোর জন্য একটি ইমেইল ঠিকানা নেওয়া হয়। ইমেইল ঠিকানা শুধু প্রতিবেদন পাঠাতেই ব্যবহৃত হয়, আপনার উত্তরের সাথে আলাদা রাখা হয়, এবং পাঠানোর পর মুছে ফেলা হয়। যেকোনো প্রশ্ন একটিও না দিয়ে যেকোনো সময় থামতে পারেন। এটি কোনো রোগ নির্ণয় নয়। কোনো বিয়ে টিকবে কিনা, এই প্রশ্নমালা তা নির্ধারণ করে না।",
+    "text_en": "This is a self-reflection questionnaire about relationships and marriage. It takes about 8 minutes. Your name, phone number, national ID and address are never asked. Only your age band, marital status, length of relationship, division, and an email for delivering your report are collected. Your email is used only to send the report, is kept separately from your answers, and is deleted once sent. You may skip any question and stop at any time. This is not a diagnosis. It does not determine whether a marriage will last.",
+    "checkboxes": [
+      { "id": "ack_main", "required": true, "bn": "আমি পড়েছি, বুঝেছি এবং অংশগ্রহণে রাজি আছি।" },
+      { "id": "ack_research", "required": false, "bn": "(ঐচ্ছিক) আমার বেনামি উত্তর গবেষণার জন্য ব্যবহার করা যেতে পারে।" }
+    ]
+  },
+
+  "routingQuestion": {
+    "text_bn": "আপনার বর্তমান অবস্থা কোনটি?",
+    "options": [
+      { "value": "M", "label_bn": "আমি বিবাহিত", "label_en": "I am married", "enabled": true },
+      { "value": "E", "label_bn": "আমি বাগদত্ত, বা বিয়ের উদ্দেশ্যে সম্পর্কে আছি", "label_en": "I am engaged, or in a relationship intended for marriage", "enabled": false, "note": "শীঘ্রই আসছে" },
+      { "value": "S", "label_bn": "এখন কোনো সম্পর্কে নেই, তবে বিয়ের কথা ভাবছি", "label_en": "I am not in a relationship now, but I am thinking about marriage", "enabled": false, "note": "শীঘ্রই আসছে" }
+    ]
+  },
+
+  "demographics": [
+    { "key": "age_band", "label_bn": "বয়সসীমা", "type": "singleChoice", "options": ["18-24","25-29","30-34","35-39","40-49","50+"] },
+    { "key": "duration_band", "label_bn": "সম্পর্ক/বিবাহের স্থিতিকাল", "type": "singleChoice", "options": ["Under 1 year","1-3 years","3-5 years","5-10 years","10+ years"] },
+    { "key": "division", "label_bn": "বিভাগ", "type": "singleChoice", "options": ["Dhaka","Chattogram","Rajshahi","Khulna","Barishal","Sylhet","Rangpur","Mymensingh"] },
+    { "key": "email", "label_bn": "ইমেইল (প্রতিবেদন পাঠানোর জন্য)", "type": "email", "required": true }
+  ],
+
+  "domains": {
+    "D1": { "name_bn": "যোগাযোগ ও দ্বন্দ্ব-সংস্কার", "name_en": "Communication & Conflict Repair" },
+    "D2": { "name_bn": "আবেগীয় সংবেদনশীলতা ও আস্থা", "name_en": "Emotional Attunement & Trust" },
+    "D3": { "name_bn": "মূল্যবোধ ও জীবনলক্ষ্যের সামঞ্জস্য", "name_en": "Values & Life-Goal Congruence" },
+    "D4": { "name_bn": "পারিবারিক-সংযোগ ও সীমারেখা", "name_en": "Family Integration & Boundary Balance" },
+    "D5": { "name_bn": "সামাজিক চাপ মোকাবিলা", "name_en": "Social Pressure Resilience" },
+    "D6": { "name_bn": "ব্যক্তিগত প্রস্তুতি ও আত্মনিয়ন্ত্রণ", "name_en": "Personal Readiness & Self-Regulation" }
+  },
+
+  "responseScale": {
+    "min": 1, "max": 5,
+    "labels": [
+      { "value": 1, "bn": "একেবারেই মিলছে না", "en": "Not at all true" },
+      { "value": 2, "bn": "খুব কম মিলছে", "en": "Slightly true" },
+      { "value": 3, "bn": "কিছুটা মিলছে", "en": "Somewhat true" },
+      { "value": 4, "bn": "অনেকটাই মিলছে", "en": "Mostly true" },
+      { "value": 5, "bn": "পুরোপুরি মিলছে", "en": "Completely true" }
+    ]
+  },
+
+  "forms": {
+    "M": {
+      "domains": ["D1","D2","D3","D4","D5","D6"],
+      "items": [
+        { "id": "D1-01", "domain": "D1", "reverse": false, "text_bn": "মনোমালিন্যের পর, রাগ পড়ে গেলে, আমরা ফিরে এসে আবার কথা বলি।", "text_en": "After a disagreement, once the anger has settled, we come back and talk it through." },
+        { "id": "D2-01", "domain": "D2", "reverse": false, "text_bn": "আমার মন খারাপ হলে, না বললেও আমার সঙ্গী তা টের পান।", "text_en": "My partner notices when I am low, even if I do not say so." },
+        { "id": "D3-01", "domain": "D3", "reverse": false, "text_bn": "দৈনন্দিন জীবনে কতটা ধর্ম চর্চা করব — এ বিষয়ে আমাদের প্রত্যাশা মেলে।", "text_en": "Our expectations match on how much religion is practised in daily life." },
+        { "id": "D4-01", "domain": "D4", "reverse": false, "text_bn": "পরিবারের কেউ আমাদের একান্ত বিষয়ে হস্তক্ষেপ করলে আমার সঙ্গী সেটা সামলে নেন।", "text_en": "When a family member intrudes into our private matters, my partner handles it." },
+        { "id": "D5-01", "domain": "D5", "reverse": false, "text_bn": "বাইরের মানুষ আমাদের সম্পর্ক নিয়ে সমালোচনা করলে আমরা একসাথে সেটা মোকাবিলা করি।", "text_en": "When outsiders criticise our relationship, we face it together." },
+        { "id": "D6-01", "domain": "D6", "reverse": false, "text_bn": "প্রচণ্ড রাগের মুহূর্তেও আমি নিজেকে সামলে নিতে পারি।", "text_en": "Even at the height of anger, I can hold myself in check." },
+        { "id": "D1-02", "domain": "D1", "reverse": true, "text_bn": "কঠিন কোনো প্রসঙ্গ তুললে অশান্তি হবে ভেবে আমি চুপ করে থাকি।", "text_en": "I keep quiet about difficult topics because I expect raising them will cause trouble." },
+        { "id": "D6-02", "domain": "D6", "reverse": false, "text_bn": "সংসারের আর্থিক দায়িত্ব নেওয়ার জন্য আমি প্রস্তুত।", "text_en": "I am ready to take on the financial responsibilities of a household." },
+        { "id": "D2-02", "domain": "D2", "reverse": true, "text_bn": "আমার সঙ্গী কোথায় আছেন বা কার সাথে আছেন — তা নিয়ে আমার সন্দেহ হয়।", "text_en": "I find myself suspicious about where my partner is or whom they are with." },
+        { "id": "D3-02", "domain": "D3", "reverse": false, "text_bn": "সন্তান কবে নেওয়া হবে এবং কয়জন — এ বিষয়ে আমাদের সিদ্ধান্ত এক।", "text_en": "We are of one mind about when to have children and how many." },
+        { "id": "D4-02", "domain": "D4", "reverse": true, "text_bn": "পরিবারকে খুশি রাখতে গিয়ে আমাদের নিজেদের প্রয়োজন প্রায়ই পিছিয়ে পড়ে।", "text_en": "Keeping the family happy pushes our own needs to the back of the queue." },
+        { "id": "D5-02", "domain": "D5", "reverse": true, "text_bn": "সমাজের কথা আমাদের নিজেদের মধ্যে দূরত্ব তৈরি করে।", "text_en": "Talk in the community ends up creating distance between the two of us." },
+        { "id": "D1-03", "domain": "D1", "reverse": false, "text_bn": "সঙ্গী দ্বিমত করলেও আমি তার কথা শেষ পর্যন্ত শুনি।", "text_en": "Even when my partner disagrees with me, I hear them out to the end." },
+        { "id": "D6-03", "domain": "D6", "reverse": true, "text_bn": "মন খারাপ থাকলে আমি আশপাশের মানুষের ওপর তা ঝাড়ি।", "text_en": "When I am in a bad mood, I take it out on the people around me." },
+        { "id": "D2-03", "domain": "D2", "reverse": false, "text_bn": "সঙ্গী কথা দিলে তা রাখেন।", "text_en": "When my partner gives their word, they keep it." },
+        { "id": "D4-03", "domain": "D4", "reverse": true, "text_bn": "আমাদের নিজেদের সিদ্ধান্তগুলো পরিবারের বড়রাই নিয়ে নেন।", "text_en": "Decisions that are ours to make end up being made by the elders of the family." },
+        { "id": "D3-03", "domain": "D3", "reverse": false, "text_bn": "টাকা-পয়সা কীভাবে খরচ ও জমানো হবে — এ বিষয়ে আমাদের মিল আছে।", "text_en": "We are aligned on how money is spent and saved." },
+        { "id": "D5-03", "domain": "D5", "reverse": true, "text_bn": "আমাদের সম্পর্ক নিয়ে বাইরে কী বলা হচ্ছে, তা নিয়ে আমি একাই দুশ্চিন্তা করি।", "text_en": "I worry on my own about what is being said outside about our relationship." },
+        { "id": "D6-04", "domain": "D6", "reverse": false, "text_bn": "এই সম্পর্কে থাকার সিদ্ধান্তটা আমার নিজের।", "text_en": "The decision to be in this relationship is my own." },
+        { "id": "D1-04", "domain": "D1", "reverse": false, "text_bn": "কথা কাটাকাটি বেড়ে গেলে আমাদের একজন সেটা থামাতে পারেন।", "text_en": "When an argument is escalating, one of us is able to stop it." },
+        { "id": "D4-04", "domain": "D4", "reverse": false, "text_bn": "দুই পরিবারের সাথেই আমাদের সম্পর্ক সহজ ও উষ্ণ।", "text_en": "Our relationship with both families is easy and warm." },
+        { "id": "D2-04", "domain": "D2", "reverse": false, "text_bn": "মনের কষ্টের কথা আমি নির্ভয়ে সঙ্গীকে বলতে পারি।", "text_en": "I can tell my partner about the things that hurt me, without fear." },
+        { "id": "D3-04", "domain": "D3", "reverse": true, "text_bn": "স্ত্রীর শিক্ষা বা চাকরি নিয়ে আমাদের প্রত্যাশা আলাদা।", "text_en": "The two of us expect different things when it comes to the wife's education or job." },
+        { "id": "D5-04", "domain": "D5", "reverse": false, "text_bn": "কঠিন সময়ে পাশে থাকবে — এমন অন্তত দুই-একজন মানুষ আমাদের আছে।", "text_en": "There are at least one or two people who would stand by us in a hard time." }
+      ]
+    },
+    "S": {
+      "domains": ["D1","D3","D5","D6"],
+      "items": [
+        { "id": "D1-01", "domain": "D1", "reverse": false, "text_bn": "ঘনিষ্ঠ কারো সাথে মনোমালিন্য হলে, রাগ পড়ে গেলে আমি নিজে থেকে সেটা মেটাতে যাই।", "text_en": "When I fall out with someone close to me, I go back and settle it once the anger has passed." },
+        { "id": "D3-01", "domain": "D3", "reverse": false, "text_bn": "দৈনন্দিন জীবনে কতটা ধর্ম চর্চা করতে চাই — এ বিষয়ে আমার কাছে স্পষ্ট।", "text_en": "I am clear about how much religion I want practised in daily life." },
+        { "id": "D5-01", "domain": "D5", "reverse": false, "text_bn": "পরিবার বা সমাজ আপত্তি করলে আমি তা সামলাতে পারব বলে মনে করি।", "text_en": "I believe I could handle it if family or society objected." },
+        { "id": "D6-01", "domain": "D6", "reverse": false, "text_bn": "প্রচণ্ড রাগের মুহূর্তেও আমি নিজেকে সামলে নিতে পারি।", "text_en": "Even at the height of anger, I can hold myself in check." },
+        { "id": "D1-02", "domain": "D1", "reverse": true, "text_bn": "অশান্তি হবে ভেবে আমি কঠিন কথা এড়িয়ে যাই।", "text_en": "I avoid difficult conversations because I expect them to cause trouble." },
+        { "id": "D3-02", "domain": "D3", "reverse": false, "text_bn": "সন্তান কবে নেব এবং কয়জন — এ বিষয়ে আমার নিজের ভাবনা স্পষ্ট।", "text_en": "I am clear in my own mind about when to have children and how many." },
+        { "id": "D5-02", "domain": "D5", "reverse": true, "text_bn": "মানুষ কী বলবে — এই ভয় আমার সিদ্ধান্তগুলো পাল্টে দেয়।", "text_en": "Worrying what people will say changes the decisions I make." },
+        { "id": "D6-02", "domain": "D6", "reverse": false, "text_bn": "সংসারের আর্থিক দায়িত্ব নেওয়ার জন্য আমি প্রস্তুত।", "text_en": "I am ready to take on the financial responsibilities of a household." },
+        { "id": "D1-03", "domain": "D1", "reverse": false, "text_bn": "কেউ আমার সাথে দ্বিমত করলেও আমি তার কথা শেষ পর্যন্ত শুনি।", "text_en": "Even when someone disagrees with me, I hear them out to the end." },
+        { "id": "D3-03", "domain": "D3", "reverse": false, "text_bn": "টাকা-পয়সা কীভাবে খরচ ও জমানো হবে তা নিয়ে আমার কাছে স্পষ্ট।", "text_en": "I am clear about how I want money spent and saved." },
+        { "id": "D5-03", "domain": "D5", "reverse": true, "text_bn": "আমাকে নিয়ে বাইরে কী বলা হচ্ছে, তা নিয়ে আমি একাই দুশ্চিন্তা করি।", "text_en": "I worry on my own about what is being said about me outside." },
+        { "id": "D6-03", "domain": "D6", "reverse": true, "text_bn": "মন খারাপ থাকলে আমি আশপাশের মানুষের ওপর তা ঝাড়ি।", "text_en": "When I am in a bad mood, I take it out on the people around me." },
+        { "id": "D1-04", "domain": "D1", "reverse": false, "text_bn": "কথা কাটাকাটি বেড়ে গেলে আমি নিজেকে থামাতে পারি।", "text_en": "When an argument is escalating, I am able to stop myself." },
+        { "id": "D3-04", "domain": "D3", "reverse": true, "text_bn": "নিজের শিক্ষা বা চাকরি নিয়ে আমি এখনো নিজের অবস্থান ঠিক করিনি।", "text_en": "I have not yet settled my own position on education or job." },
+        { "id": "D5-04", "domain": "D5", "reverse": false, "text_bn": "কঠিন সময়ে পাশে থাকবে — এমন অন্তত দুই-একজন মানুষ আমার আছে।", "text_en": "There are at least one or two people who would stand by me in a hard time." },
+        { "id": "D6-04", "domain": "D6", "reverse": false, "text_bn": "বিয়ের সিদ্ধান্তটা আমার নিজেরই হবে।", "text_en": "The decision about marriage will be mine to make." }
+      ]
+    }
+  },
+
+  "careModule": {
+    "note_bn": "আর মাত্র তিনটি বাক্য। এগুলোর উত্তর আপনার স্কোরের কোনো অংশ হবে না। উত্তর না দিলেও চলবে।",
+    "items": [
+      { "id": "C1", "text_bn": "আমার সঙ্গী কীভাবে প্রতিক্রিয়া দেখাবেন — এই ভয়ে অনেক সময় চুপ থাকি বা নিজের পরিকল্পনা পাল্টে ফেলি।", "text_en": "There are times I stay quiet, or change my plans, because I am afraid of how my partner will react." },
+      { "id": "C2", "text_bn": "আমার টাকা-পয়সা, চলাফেরা, ফোন, বা কার সাথে দেখা করব — এসব নিয়ন্ত্রণ আমার সঙ্গীর হাতে।", "text_en": "My partner controls my money, my movements, my phone, or whom I am allowed to meet." },
+      { "id": "C3", "text_bn": "এই সম্পর্কে আমি শারীরিকভাবে আঘাত পেয়েছি, অথবা আঘাতের হুমকি পেয়েছি।", "text_en": "In this relationship I have been physically hurt, or threatened with being hurt." }
+    ],
+    "answerOptions": [
+      { "value": "yes", "label_bn": "হ্যাঁ" },
+      { "value": "no", "label_bn": "না" },
+      { "value": "prefer_not", "label_bn": "উত্তর দিতে চাই না" }
+    ]
+  },
+
+  "reverseFormula": "recoded = 6 - raw",
+  "roundingRule": "half_up",
+
+  "missingDataRule": {
+    "oneMissingPerDomain": "prorate (mean of remaining 3 items)",
+    "twoOrMoreMissingPerDomain": "domain unscored, never shown as 0 or low",
+    "oneDomainUnscored": "total still computed from remaining domains, with visible note",
+    "twoOrMoreDomainsUnscored": "no total index reported",
+    "priInputsUnscored": "if D1, D4, or D5 unscored, PRI withheld"
+  },
+
+  "indexFormula": "index = round_half_up((domainMean - 1) / 4 * 100)",
+  "totalFormula": "total = round_half_up((mean of scored domain means - 1) / 4 * 100)",
+  "priFormula": {
+    "weights": { "D5": 0.50, "D4": 0.30, "D1": 0.20 },
+    "note_bn": "শুধু Form M ও E-তে দেখানো হয়, Form S-এ না। এই ওজন এখনো তত্ত্বনির্ভর, criterion study থেকে না — রিপোর্টে 'provisional' হিসেবে লেবেল করতে হবে।"
+  },
+
+  "bands": [
+    { "code": "b1", "min": 0,  "max": 40, "label_bn": "চাপের মুখে", "label_en": "Under strain", "color": "red" },
+    { "code": "b2", "min": 40, "max": 55, "label_bn": "মিশ্র", "label_en": "Mixed", "color": "orange" },
+    { "code": "b3", "min": 55, "max": 70, "label_bn": "কার্যকর", "label_en": "Working", "color": "amber" },
+    { "code": "b4", "min": 70, "max": 85, "label_bn": "শক্তিশালী", "label_en": "Strong", "color": "lightgreen" },
+    { "code": "b5", "min": 85, "max": 101, "label_bn": "সুসংহত", "label_en": "Consolidated", "color": "green" }
+  ],
+
+  "triageRules": [
+    { "order": 1, "trigger": "any_care_item_yes", "tier": 4, "label_bn": "নিরাপত্তা আগে", "reportReplaced": true },
+    { "order": 2, "trigger": "total_index_lt_40", "tier": 3, "label_bn": "কাঠামোবদ্ধ সহায়তা" },
+    { "order": 3, "trigger": "total_40_54_or_any_domain_lt_40", "tier": 2, "label_bn": "কেন্দ্রীভূত সহায়তা" },
+    { "order": 4, "trigger": "total_55_69", "tier": 1, "label_bn": "গাইডেড সেলফ-হেল্প" },
+    { "order": 5, "trigger": "total_gte_70", "tier": 0, "label_bn": "রক্ষণাবেক্ষণ" }
+  ],
+  "triageNote": "নিয়ম উপর থেকে নিচে ক্রমান্বয়ে চেক হয়, প্রথম যেটা মিলবে সেটাই চূড়ান্ত — Care flag সবার আগে, PHQ-4 এখন বাদ (module নেই)।",
+
+  "domainModalityMap": {
+    "D1": "কাপল কমিউনিকেশন ট্রেনিং, বা Gottman-ধাঁচের দ্বন্দ্ব-সংস্কার — সাধারণত সংক্ষিপ্ত ও কাঠামোবদ্ধ।",
+    "D2": "Emotionally Focused Therapy বা attachment-informed couples work।",
+    "D3": "প্রত্যাশা নিয়ে আলোচনা-সহায়ক structured premarital বা marital counselling।",
+    "D4": "Family-systems বা boundary-কেন্দ্রিক couples work।",
+    "D5": "Dyadic coping training ও support mapping।",
+    "D6": "ব্যক্তিগত emotion-regulation কাজ (CBT/DBT-ভিত্তিক)।"
+  },
+
+  "tier4Message_bn": "আপনার এক বা একাধিক উত্তর নির্দেশ করছে সম্পর্কে ভয় বা নিয়ন্ত্রণ থাকতে পারে। এমন পরিস্থিতিতে যৌথ কাউন্সেলিং সুপারিশকৃত প্রথম ধাপ না — বরং একজন coercive-control বিষয়ে অভিজ্ঞ ব্যক্তিগত কাউন্সেলরের সাথে কথা বলা ভালো।",
+
+  "referralResources": [
+    { "need_bn": "মানসিক সহায়তা; আত্মহত্যার চিন্তা", "service": "Kaan Pete Roi", "number": "09612-119911", "hours_bn": "প্রতিদিন দুপুর ৩টা - রাত ৩টা" },
+    { "need_bn": "সহিংসতা, হুমকি বা নিয়ন্ত্রণ", "service": "National Helpline Centre", "number": "109", "hours_bn": "২৪ ঘণ্টা" },
+    { "need_bn": "যেকোনো জরুরি অবস্থা", "service": "National Emergency Service", "number": "999", "hours_bn": "২৪ ঘণ্টা" },
+    { "need_bn": "সহিংসতার পর চিকিৎসা/আইনি সহায়তা", "service": "One Stop Crisis Centre (OCC)", "number": "109-এর মাধ্যমে", "hours_bn": "২৪ ঘণ্টা" },
+    { "need_bn": "১৮ বছরের কম বয়সী যে কেউ", "service": "Child Helpline", "number": "1098", "hours_bn": "২৪ ঘণ্টা" },
+    { "need_bn": "আইনি সহায়তা ও মধ্যস্থতা", "service": "Ain o Salish Kendra (ASK)", "number": "01724-415677", "hours_bn": "অফিস সময়" },
+    { "need_bn": "আইনি সহায়তা ও আশ্রয়", "service": "BNWLA", "number": "01711-800401", "hours_bn": "অফিস সময়" }
+  ],
+
+  "disclaimer_bn": "এটি আপনার নিজের দৃষ্টিভঙ্গি থেকে সম্পর্কের একটি চিত্র। এটি কোনো রোগ নির্ণয় নয়। এটি বলে না কোনো বিয়ে টিকবে কিনা। এই স্কোরগুলো আপনার নিজের উত্তরের সরাসরি রূপান্তর — অন্য কারো সাথে তুলনা নয়। জাতীয় তুলনামূলক তথ্য এখনো সংগ্রহ করা হচ্ছে।",
+
+  "authorDisclosure_bn": "প্রশ্ন থাকলে: Kazi Fardous Iqbal, MS (Psychology), Licensed Psychologist · www.whynotyoupsy.com। প্রকাশ: এই যন্ত্রের রচয়িতা একটি ব্যক্তিগত কাউন্সেলিং প্র্যাকটিসও পরিচালনা করেন। উপরের তালিকার সেবাগুলো সবই বিনামূল্যে ও স্বাধীন।",
+
+  "scoringMustRunServerSide": true,
+  "excludedFromThisBuild": ["PHQ-4 wellbeing module", "rotating calibration reserve block", "Form E full UI flow", "Form S full UI flow", "separated delivery-queue auto-delete storage architecture"]
+}

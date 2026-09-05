@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export type ScoringType = "vector_matching" | "sum_and_band" | "domain_pomp_composite" | "domain_mean_average";
+export type ScoringType = "vector_matching" | "sum_and_band" | "domain_pomp_composite" | "domain_mean_average" | "mcrrs_triage";
 
 export interface IInstrument extends Document {
   instrumentSlug: string;
@@ -42,7 +42,7 @@ const instrumentSchema = new Schema<IInstrument>(
 
     scoringType: {
       type: String,
-      enum: ["vector_matching", "sum_and_band", "domain_pomp_composite", "domain_mean_average"],
+      enum: ["vector_matching", "sum_and_band", "domain_pomp_composite", "domain_mean_average", "mcrrs_triage"],
       required: true,
     },
 
