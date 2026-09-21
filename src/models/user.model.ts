@@ -30,7 +30,7 @@ const userSchema = new Schema<IUser>(
 
     role: {
       type: String,
-      default: "user",
+      default: "USER",
     },
   },
   {
