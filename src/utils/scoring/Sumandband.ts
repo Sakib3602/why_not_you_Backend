@@ -35,10 +35,11 @@ export function scoreSumAndBand(
 
     constructResults[c] = {
       name_bn: instrumentData.constructs[c].name_bn,
+      name_en: instrumentData.constructs[c].name_en,
       score: enoughAnswered ? sum : null,
       maxScore: instrumentData.constructs[c].scoreRange[1],
       band,
-      interpretation, // { bn, actions_bn, crisisNote? }
+      interpretation, // { bn, actions_bn, en, actions_en, crisisNote? }
     };
   });
 
@@ -54,12 +55,12 @@ export function scoreSumAndBand(
   const maxScore = Math.max(...validConstructs.map((c) => constructResults[c].score as number));
   const dominant = validConstructs
     .filter((c) => constructResults[c].score === maxScore)
-    .map((c) => constructResults[c].name_bn);
+    .map((c) => constructResults[c].name_en || constructResults[c].name_bn);
 
   const alarming = maxRank >= 3;
-  const referral = alarming ? instrumentData.referral.message_bn : null;
+  const referral = alarming ? (instrumentData.referral.message_en || instrumentData.referral.message_bn) : null;
   const crisisNote =
-    (constructResults["D"]?.band?.rank ?? -1) >= 3 ? instrumentData.crisisNote.message_bn : null;
+    (constructResults["D"]?.band?.rank ?? -1) >= 3 ? (instrumentData.crisisNote.message_en || instrumentData.crisisNote.message_bn) : null;
 
   return {
     scoringType: "sum_and_band",

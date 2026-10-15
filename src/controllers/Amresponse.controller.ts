@@ -23,8 +23,8 @@ export const submitAmResponse = async (req: Request, res: Response) => {
 
     const computedResult = computeAmBatteryScore(battery.config, answers, assignedForm);
 
-    const response = await AmResponse.create({
-      batterySlug: slug,
+    const response: any = await AmResponse.create({
+      batterySlug: String(slug),
       assignedForm,
       answers,
       candidateInfo,
@@ -32,7 +32,7 @@ export const submitAmResponse = async (req: Request, res: Response) => {
       consentAck: !!consentAck,
       paymentStatus: battery.price > 0 ? "pending" : "free",
       submittedAt: new Date(),
-    });
+    } as any);
 
     if (response.paymentStatus === "free") {
       return res.status(201).json({

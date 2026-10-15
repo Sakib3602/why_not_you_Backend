@@ -32,13 +32,18 @@ export function scoreMcrrsTriage(
     const dItems = items.filter((it) => it.domain === d);
     const answered = dItems.filter((it) => recoded[it.id] !== undefined);
     if (answered.length <= 2) {
-      domainResults[d] = { name_bn: instrumentData.domains[d].name_bn, scored: false };
+      domainResults[d] = {
+        name_bn: instrumentData.domains[d].name_bn,
+        name_en: instrumentData.domains[d].name_en,
+        scored: false,
+      };
       return;
     }
     const mean = answered.reduce((s, it) => s + recoded[it.id], 0) / answered.length;
     const index = roundHalfUp(((mean - 1) / 4) * 100);
     domainResults[d] = {
       name_bn: instrumentData.domains[d].name_bn,
+      name_en: instrumentData.domains[d].name_en,
       scored: true,
       mean,
       index,
@@ -99,12 +104,15 @@ export function scoreMcrrsTriage(
     pri,
     tier,
     tierLabel_bn: instrumentData.triageRules.find((r: any) => r.tier === tier)?.label_bn,
+    tierLabel_en: instrumentData.triageRules.find((r: any) => r.tier === tier)?.label_en,
     strongest,
     focusAreas,
     domainModalityMap: instrumentData.domainModalityMap,
     referralResources: instrumentData.referralResources,
     tier4Message_bn: careFlag ? instrumentData.tier4Message_bn : null,
+    tier4Message_en: careFlag ? (instrumentData.tier4Message_en || instrumentData.tier4Message_bn) : null,
     disclaimer_bn: instrumentData.disclaimer_bn,
+    disclaimer_en: instrumentData.disclaimer_en,
   };
 }
 

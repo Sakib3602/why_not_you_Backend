@@ -280,14 +280,14 @@ export const submitImageQuizResponse = async (req: Request, res: Response) => {
 
     const paymentStatus = quiz.price > 0 ? "pending" : "free";
 
-    const response = await ImageQuizResponse.create({
-      quizSlug: slug,
+    const response: any = await ImageQuizResponse.create({
+      quizSlug: String(slug),
       answers,
       candidateInfo,
       computedResult: { score, total, percentage, details },
       paymentStatus,
       submittedAt: new Date(),
-    });
+    } as any);
 
     res.status(201).json({
       responseId: response._id,

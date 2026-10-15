@@ -48,7 +48,9 @@ export function scoreDomainMeanAverage(
     const band = bandFor(score, instrumentData.bands[d]);
     domainResults[d] = {
       name_bn: instrumentData.domains[d].name_bn,
+      name_en: instrumentData.domains[d].name_en,
       measures_bn: instrumentData.domains[d].measures_bn,
+      measures_en: instrumentData.domains[d].measures_en,
       score,
       scoreDisplay: Math.round(score * 100) / 100, // শুধু দেখানোর জন্য round
       band,

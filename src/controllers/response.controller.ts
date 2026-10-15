@@ -34,8 +34,8 @@ export const submitResponse = async (req: Request, res: Response) => {
     // এখনো middleware না বসালে userId undefined থাকবে — guest submission হিসেবে চলবে।
     const userId = (req as any).user?.userId;
 
-    const response = await ResponseModel.create({
-      instrumentSlug: slug,
+    const response: any = await ResponseModel.create({
+      instrumentSlug: String(slug),
       userId,
       answers,
       personalInfo,
@@ -44,7 +44,7 @@ export const submitResponse = async (req: Request, res: Response) => {
       consentVersion,
       paymentStatus: instrument.price > 0 ? "pending" : "free",
       submittedAt: new Date(),
-    });
+    } as any);
 
     if (response.paymentStatus === "free") {
       return res.status(201).json({

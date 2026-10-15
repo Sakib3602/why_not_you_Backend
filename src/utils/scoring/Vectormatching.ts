@@ -154,7 +154,9 @@ export function scoreVectorMatching(
   return {
     scoringType: "vector_matching",
     typeLabels_bn: instrumentData.typeLabels_bn,
+    typeLabels_en: instrumentData.typeLabels_en,
     valueLabels_bn: instrumentData.valueLabels_bn,
+    valueLabels_en: instrumentData.valueLabels_en,
     interest, confidence, values,
     hollandCode, clarity, clarityVerdict, coherence,
     matches: top12,
@@ -163,7 +165,8 @@ export function scoreVectorMatching(
     overseas: showOverseas && clarityVerdict !== "FLAT"
       ? { sections: overseasSections, showScholarships, weakEnglish,
           scholarships: showScholarships ? instrumentData.scholarships : [],
-          fraudWarning_bn: instrumentData.fraudWarning_bn }
+          fraudWarning_bn: instrumentData.fraudWarning_bn,
+          fraudWarning_en: instrumentData.fraudWarning_en }
       : null,
     gaps, track,
   };

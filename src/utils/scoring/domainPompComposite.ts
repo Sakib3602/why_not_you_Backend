@@ -37,6 +37,7 @@ export function scoreDomainPompComposite(
     const index = pomp(sum, answeredItems.length);
     domainResults[d] = {
       name_bn: instrumentData.domains[d].name_bn,
+      name_en: instrumentData.domains[d].name_en,
       index,
       scored: true,
       band: bandFor(index, instrumentData.bands),
