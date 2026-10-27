@@ -33,6 +33,7 @@ export const createImageQuiz = async (req: Request, res: Response) => {
       description,
       coverImage,
       price: Number(price) || 0,
+      ageGroup: req.body.ageGroup || null,
       status: "draft",
       items: [],
     });
@@ -66,7 +67,7 @@ export const getImageQuizAdmin = async (req: Request, res: Response) => {
 export const updateImageQuizMeta = async (req: Request, res: Response) => {
   try {
     const { slug } = req.params;
-    const allowed = ["name", "description", "coverImage", "price", "status"];
+    const allowed = ["name", "description", "coverImage", "price", "status", "ageGroup"];
     const update: Record<string, any> = {};
     for (const key of allowed) {
       if (req.body[key] !== undefined) update[key] = req.body[key];
@@ -206,7 +207,7 @@ export const deleteImageQuizItem = async (req: Request, res: Response) => {
 export const listPublishedImageQuizzes = async (_req: Request, res: Response) => {
   try {
     const quizzes = await ImageQuiz.find({ status: "published" }).select(
-      "slug name coverImage price"
+      "slug name coverImage price ageGroup"
     );
     res.json(quizzes);
   } catch (err: any) {

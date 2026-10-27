@@ -11,6 +11,8 @@ export interface ImageQuizItem {
   note_bn?: string; 
 }
 
+export type AgeGroup = "5-8" | "9-12" | "13-17" | "18-29" | "30+";
+
 export interface IImageQuiz extends Document {
   slug: string;
   name: { bn: string; en?: string };
@@ -18,6 +20,7 @@ export interface IImageQuiz extends Document {
   coverImage?: string;
   price: number;
   status: ImageQuizStatus;
+  ageGroup?: AgeGroup;
   items: ImageQuizItem[];
 }
 
@@ -42,6 +45,12 @@ const imageQuizSchema = new Schema<IImageQuiz>(
     coverImage: { type: String, default: "" },
 
     price: { type: Number, default: 0, min: 0 },
+
+    ageGroup: {
+      type: String,
+      enum: ["5-8", "9-12", "13-17", "18-29", "30+"],
+      default: null,
+    },
 
     // draft অবস্থায় public route-এ দেখা যাবে না, শুধু admin দেখবে
     status: { type: String, enum: ["draft", "published"], default: "draft" },
