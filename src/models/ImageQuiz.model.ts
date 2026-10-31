@@ -48,7 +48,6 @@ const imageQuizSchema = new Schema<IImageQuiz>(
 
     ageGroup: {
       type: String,
-      enum: ["5-8", "9-12", "13-17", "18-29", "30+"],
       default: null,
     },
 

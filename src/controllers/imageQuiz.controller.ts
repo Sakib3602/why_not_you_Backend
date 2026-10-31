@@ -69,11 +69,23 @@ export const updateImageQuizMeta = async (req: Request, res: Response) => {
     const { slug } = req.params;
     const allowed = ["name", "description", "coverImage", "price", "status", "ageGroup"];
     const update: Record<string, any> = {};
+    const unset: Record<string, any> = {};
+
     for (const key of allowed) {
-      if (req.body[key] !== undefined) update[key] = req.body[key];
+      if (req.body[key] !== undefined) {
+        if (key === "ageGroup" && (!req.body[key] || req.body[key] === "none" || req.body[key] === "null")) {
+          unset["ageGroup"] = 1;
+        } else {
+          update[key] = req.body[key];
+        }
+      }
     }
 
-    const quiz = await ImageQuiz.findOneAndUpdate({ slug }, update, { new: true });
+    const query: Record<string, any> = {};
+    if (Object.keys(update).length > 0) query.$set = update;
+    if (Object.keys(unset).length > 0) query.$unset = unset;
+
+    const quiz = await ImageQuiz.findOneAndUpdate({ slug }, query, { new: true });
     if (!quiz) return res.status(404).json({ message: "পাওয়া যায়নি।" });
     res.json(quiz);
   } catch (err: any) {
