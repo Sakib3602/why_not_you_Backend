@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import Instrument from "../models/instrument.model";
 import ResponseModel from "../models/response.model";
 import { computeScore } from "../utils/scoring/Index";
+import cfiBdConfig from "../data/cfi-bd.config.json";
 
 
 
@@ -86,8 +87,25 @@ export const getResult = async (req: Request, res: Response) => {
       });
     }
 
+    let result = response.computedResult;
+    if (response.instrumentSlug === "cfi-bd") {
+      const instrument = await Instrument.findOne({
+        instrumentSlug: "cfi-bd",
+        isActive: true,
+      });
+      if (instrument) {
+        result = computeScore(instrument.scoringType, cfiBdConfig, response.answers);
+      }
+    }
+
     return res.status(200).json({
-      result: response.computedResult,
+      result,
+      response: {
+        instrumentSlug: response.instrumentSlug,
+        personalInfo: response.personalInfo,
+        submittedAt: response.submittedAt,
+        paymentStatus: response.paymentStatus,
+      },
     });
   } catch (error) {
     return res.status(500).json({
