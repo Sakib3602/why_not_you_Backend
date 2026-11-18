@@ -3078,89 +3078,655 @@
   "fraudWarning_bn": "বিদেশে চাকরির প্রস্তাব নেওয়ার আগে অবশ্যই BMET-এ এজেন্সি/নিয়োগকর্তা যাচাই করুন। বৈধ যাচাই ছাড়া কোনো অগ্রিম টাকা দেবেন না।",
   "pathways": {
     "default": [
-      {"step_en":"Choose a target field","step_bn":"লক্ষ্য কর্মক্ষেত্র বেছে নিন","route_en":"Review the occupation route and current admission rules.","route_bn":"পেশার পথ ও বর্তমান ভর্তির নিয়ম পর্যালোচনা করুন।","institution_en":"DSHE · dshe.gov.bd","institution_bn":"DSHE · dshe.gov.bd"},
-      {"step_en":"Build supervised experience","step_bn":"তত্ত্বাবধানে অভিজ্ঞতা তৈরি করুন","route_en":"Complete a placement, practicum or relevant training.","route_bn":"প্লেসমেন্ট, প্র্যাকটিকাম বা প্রাসঙ্গিক প্রশিক্ষণ সম্পন্ন করুন।","institution_en":"BRAC IED · bracied.bracu.ac.bd","institution_bn":"BRAC IED · bracied.bracu.ac.bd"}
+      {
+        "step_en": "Choose a target field",
+        "step_bn": "লক্ষ্য কর্মক্ষেত্র বেছে নিন",
+        "route_en": "Review the occupation route and current admission rules.",
+        "route_bn": "পেশার পথ ও বর্তমান ভর্তির নিয়ম পর্যালোচনা করুন।",
+        "institution_en": "DSHE · dshe.gov.bd",
+        "institution_bn": "DSHE · dshe.gov.bd"
+      },
+      {
+        "step_en": "Build supervised experience",
+        "step_bn": "তত্ত্বাবধানে অভিজ্ঞতা তৈরি করুন",
+        "route_en": "Complete a placement, practicum or relevant training.",
+        "route_bn": "প্লেসমেন্ট, প্র্যাকটিকাম বা প্রাসঙ্গিক প্রশিক্ষণ সম্পন্ন করুন।",
+        "institution_en": "BRAC IED · bracied.bracu.ac.bd",
+        "institution_bn": "BRAC IED · bracied.bracu.ac.bd"
+      }
     ],
-    "Engineering & Technology": [{"step_en":"Choose an engineering or technology route","step_bn":"প্রকৌশল বা প্রযুক্তির পথ বেছে নিন","route_en":"Compare diploma and degree entry requirements.","route_bn":"ডিপ্লোমা ও ডিগ্রির ভর্তির শর্ত তুলনা করুন।","institution_en":"BTEB · du.ac.bd","institution_bn":"BTEB · du.ac.bd"}],
-    "Information & Communication Technology": [{"step_en":"Build a technology portfolio","step_bn":"প্রযুক্তি পোর্টফোলিও তৈরি করুন","route_en":"Study a relevant programme and document practical projects.","route_bn":"প্রাসঙ্গিক প্রোগ্রাম পড়ে ব্যবহারিক প্রকল্পের নথি রাখুন।","institution_en":"ICT Division · du.ac.bd","institution_bn":"ICT Division · du.ac.bd"}],
-    "Education & Training": [{"step_en":"Study education or a related subject","step_bn":"শিক্ষা বা সংশ্লিষ্ট বিষয় পড়ুন","route_en":"Follow degree, B.Ed and recruitment requirements.","route_bn":"ডিগ্রি, বিএড ও নিয়োগের শর্ত অনুসরণ করুন।","institution_en":"DSHE · dshe.gov.bd · NTRCA","institution_bn":"DSHE · dshe.gov.bd · NTRCA"}],
-    "Human Services & Development": [{"step_en":"Choose a helping-profession route","step_bn":"সহায়তামূলক পেশার পথ বেছে নিন","route_en":"Build supervised counselling, social work or development experience.","route_bn":"তত্ত্বাবধানে কাউন্সেলিং, সমাজকর্ম বা উন্নয়ন অভিজ্ঞতা তৈরি করুন।","institution_en":"BPA · bpa-bd.org","institution_bn":"BPA · bpa-bd.org"}],
-    "Health Science": [{"step_en":"Check professional registration","step_bn":"পেশাগত নিবন্ধন যাচাই করুন","route_en":"Select an approved health programme and its supervised practice route.","route_bn":"অনুমোদিত স্বাস্থ্য প্রোগ্রাম ও তত্ত্বাবধানের পথ বেছে নিন।","institution_en":"Relevant regulator · du.ac.bd","institution_bn":"প্রাসঙ্গিক নিয়ন্ত্রক · du.ac.bd"}],
-    "Arts, Media & Communication": [{"step_en":"Prepare a portfolio","step_bn":"পোর্টফোলিও তৈরি করুন","route_en":"Combine admission requirements with a reviewed creative portfolio.","route_bn":"ভর্তির শর্তের সঙ্গে যাচাইকৃত সৃজনশীল পোর্টফোলিও প্রস্তুত করুন।","institution_en":"Charukala · du.ac.bd","institution_bn":"চারুকলা · du.ac.bd"}],
-    "Finance, Business & Administration": [{"step_en":"Select a business pathway","step_bn":"ব্যবসা বিষয়ক পথ বেছে নিন","route_en":"Compare university and professional qualification routes.","route_bn":"বিশ্ববিদ্যালয় ও পেশাগত যোগ্যতার পথ তুলনা করুন।","institution_en":"du.ac.bd","institution_bn":"du.ac.bd"}],
-    "Government & Public Service": [{"step_en":"Review public-service eligibility","step_bn":"সরকারি সেবার যোগ্যতা দেখুন","route_en":"Track official recruitment and qualification notices.","route_bn":"সরকারি নিয়োগ ও যোগ্যতার বিজ্ঞপ্তি অনুসরণ করুন।","institution_en":"BPSC · DSHE","institution_bn":"BPSC · DSHE"}],
-    "Agriculture & Natural Resources": [{"step_en":"Choose an applied agriculture route","step_bn":"প্রয়োগভিত্তিক কৃষি পথ বেছে নিন","route_en":"Combine study with field-based practice.","route_bn":"পড়াশোনার সঙ্গে মাঠভিত্তিক অনুশীলন যুক্ত করুন।","institution_en":"Department of Agricultural Extension","institution_bn":"কৃষি সম্প্রসারণ অধিদপ্তর"}],
-    "Hospitality & Tourism": [{"step_en":"Complete service-sector training","step_bn":"সেবা খাতের প্রশিক্ষণ নিন","route_en":"Build practical customer-service and operations evidence.","route_bn":"গ্রাহকসেবা ও পরিচালনার ব্যবহারিক প্রমাণ তৈরি করুন।","institution_en":"NHTTI","institution_bn":"NHTTI"}],
-    "Transport, Logistics & Maritime": [{"step_en":"Check transport-sector certification","step_bn":"পরিবহন খাতের সনদ যাচাই করুন","route_en":"Follow the approved training and licensing pathway.","route_bn":"অনুমোদিত প্রশিক্ষণ ও লাইসেন্সের পথ অনুসরণ করুন।","institution_en":"Department of Shipping","institution_bn":"নৌপরিবহন অধিদপ্তর"}],
-    "Manufacturing & RMG": [{"step_en":"Choose a technical training route","step_bn":"কারিগরি প্রশিক্ষণের পথ বেছে নিন","route_en":"Compare skills certification and technical programmes.","route_bn":"দক্ষতা সনদ ও কারিগরি প্রোগ্রাম তুলনা করুন।","institution_en":"NSDA · BMET","institution_bn":"NSDA · BMET"}],
-    "Construction & Skilled Trades": [{"step_en":"Complete skills certification","step_bn":"দক্ষতা সনদ সম্পন্ন করুন","route_en":"Use an approved trade training and assessment route.","route_bn":"অনুমোদিত ট্রেড প্রশিক্ষণ ও মূল্যায়নের পথ নিন।","institution_en":"BMET · NSDA","institution_bn":"BMET · NSDA"}],
-    "Defence & Public Safety": [{"step_en":"Review official eligibility","step_bn":"সরকারি যোগ্যতা দেখুন","route_en":"Follow the official recruitment and selection process.","route_bn":"সরকারি নিয়োগ ও বাছাই প্রক্রিয়া অনুসরণ করুন।","institution_en":"ISSB","institution_bn":"ISSB"}],
-    "Law & Justice": [{"step_en":"Choose an approved law route","step_bn":"অনুমোদিত আইন বিষয়ক পথ বেছে নিন","route_en":"Check degree, enrolment and professional requirements.","route_bn":"ডিগ্রি, তালিকাভুক্তি ও পেশাগত শর্ত যাচাই করুন।","institution_en":"du.ac.bd","institution_bn":"du.ac.bd"}]
+    "Engineering & Technology": [
+      {
+        "step_en": "Choose an engineering or technology route",
+        "step_bn": "প্রকৌশল বা প্রযুক্তির পথ বেছে নিন",
+        "route_en": "Compare diploma and degree entry requirements.",
+        "route_bn": "ডিপ্লোমা ও ডিগ্রির ভর্তির শর্ত তুলনা করুন।",
+        "institution_en": "BTEB · du.ac.bd",
+        "institution_bn": "BTEB · du.ac.bd"
+      }
+    ],
+    "Information & Communication Technology": [
+      {
+        "step_en": "Build a technology portfolio",
+        "step_bn": "প্রযুক্তি পোর্টফোলিও তৈরি করুন",
+        "route_en": "Study a relevant programme and document practical projects.",
+        "route_bn": "প্রাসঙ্গিক প্রোগ্রাম পড়ে ব্যবহারিক প্রকল্পের নথি রাখুন।",
+        "institution_en": "ICT Division · du.ac.bd",
+        "institution_bn": "ICT Division · du.ac.bd"
+      }
+    ],
+    "Education & Training": [
+      {
+        "step_en": "Study education or a related subject",
+        "step_bn": "শিক্ষা বা সংশ্লিষ্ট বিষয় পড়ুন",
+        "route_en": "Follow degree, B.Ed and recruitment requirements.",
+        "route_bn": "ডিগ্রি, বিএড ও নিয়োগের শর্ত অনুসরণ করুন।",
+        "institution_en": "DSHE · dshe.gov.bd · NTRCA",
+        "institution_bn": "DSHE · dshe.gov.bd · NTRCA"
+      }
+    ],
+    "Human Services & Development": [
+      {
+        "step_en": "Choose a helping-profession route",
+        "step_bn": "সহায়তামূলক পেশার পথ বেছে নিন",
+        "route_en": "Build supervised counselling, social work or development experience.",
+        "route_bn": "তত্ত্বাবধানে কাউন্সেলিং, সমাজকর্ম বা উন্নয়ন অভিজ্ঞতা তৈরি করুন।",
+        "institution_en": "BPA · bpa-bd.org",
+        "institution_bn": "BPA · bpa-bd.org"
+      }
+    ],
+    "Health Science": [
+      {
+        "step_en": "Check professional registration",
+        "step_bn": "পেশাগত নিবন্ধন যাচাই করুন",
+        "route_en": "Select an approved health programme and its supervised practice route.",
+        "route_bn": "অনুমোদিত স্বাস্থ্য প্রোগ্রাম ও তত্ত্বাবধানের পথ বেছে নিন।",
+        "institution_en": "Relevant regulator · du.ac.bd",
+        "institution_bn": "প্রাসঙ্গিক নিয়ন্ত্রক · du.ac.bd"
+      }
+    ],
+    "Arts, Media & Communication": [
+      {
+        "step_en": "Prepare a portfolio",
+        "step_bn": "পোর্টফোলিও তৈরি করুন",
+        "route_en": "Combine admission requirements with a reviewed creative portfolio.",
+        "route_bn": "ভর্তির শর্তের সঙ্গে যাচাইকৃত সৃজনশীল পোর্টফোলিও প্রস্তুত করুন।",
+        "institution_en": "Charukala · du.ac.bd",
+        "institution_bn": "চারুকলা · du.ac.bd"
+      }
+    ],
+    "Finance, Business & Administration": [
+      {
+        "step_en": "Select a business pathway",
+        "step_bn": "ব্যবসা বিষয়ক পথ বেছে নিন",
+        "route_en": "Compare university and professional qualification routes.",
+        "route_bn": "বিশ্ববিদ্যালয় ও পেশাগত যোগ্যতার পথ তুলনা করুন।",
+        "institution_en": "du.ac.bd",
+        "institution_bn": "du.ac.bd"
+      }
+    ],
+    "Government & Public Service": [
+      {
+        "step_en": "Review public-service eligibility",
+        "step_bn": "সরকারি সেবার যোগ্যতা দেখুন",
+        "route_en": "Track official recruitment and qualification notices.",
+        "route_bn": "সরকারি নিয়োগ ও যোগ্যতার বিজ্ঞপ্তি অনুসরণ করুন।",
+        "institution_en": "BPSC · DSHE",
+        "institution_bn": "BPSC · DSHE"
+      }
+    ],
+    "Agriculture & Natural Resources": [
+      {
+        "step_en": "Choose an applied agriculture route",
+        "step_bn": "প্রয়োগভিত্তিক কৃষি পথ বেছে নিন",
+        "route_en": "Combine study with field-based practice.",
+        "route_bn": "পড়াশোনার সঙ্গে মাঠভিত্তিক অনুশীলন যুক্ত করুন।",
+        "institution_en": "Department of Agricultural Extension",
+        "institution_bn": "কৃষি সম্প্রসারণ অধিদপ্তর"
+      }
+    ],
+    "Hospitality & Tourism": [
+      {
+        "step_en": "Complete service-sector training",
+        "step_bn": "সেবা খাতের প্রশিক্ষণ নিন",
+        "route_en": "Build practical customer-service and operations evidence.",
+        "route_bn": "গ্রাহকসেবা ও পরিচালনার ব্যবহারিক প্রমাণ তৈরি করুন।",
+        "institution_en": "NHTTI",
+        "institution_bn": "NHTTI"
+      }
+    ],
+    "Transport, Logistics & Maritime": [
+      {
+        "step_en": "Check transport-sector certification",
+        "step_bn": "পরিবহন খাতের সনদ যাচাই করুন",
+        "route_en": "Follow the approved training and licensing pathway.",
+        "route_bn": "অনুমোদিত প্রশিক্ষণ ও লাইসেন্সের পথ অনুসরণ করুন।",
+        "institution_en": "Department of Shipping",
+        "institution_bn": "নৌপরিবহন অধিদপ্তর"
+      }
+    ],
+    "Manufacturing & RMG": [
+      {
+        "step_en": "Choose a technical training route",
+        "step_bn": "কারিগরি প্রশিক্ষণের পথ বেছে নিন",
+        "route_en": "Compare skills certification and technical programmes.",
+        "route_bn": "দক্ষতা সনদ ও কারিগরি প্রোগ্রাম তুলনা করুন।",
+        "institution_en": "NSDA · BMET",
+        "institution_bn": "NSDA · BMET"
+      }
+    ],
+    "Construction & Skilled Trades": [
+      {
+        "step_en": "Complete skills certification",
+        "step_bn": "দক্ষতা সনদ সম্পন্ন করুন",
+        "route_en": "Use an approved trade training and assessment route.",
+        "route_bn": "অনুমোদিত ট্রেড প্রশিক্ষণ ও মূল্যায়নের পথ নিন।",
+        "institution_en": "BMET · NSDA",
+        "institution_bn": "BMET · NSDA"
+      }
+    ],
+    "Defence & Public Safety": [
+      {
+        "step_en": "Review official eligibility",
+        "step_bn": "সরকারি যোগ্যতা দেখুন",
+        "route_en": "Follow the official recruitment and selection process.",
+        "route_bn": "সরকারি নিয়োগ ও বাছাই প্রক্রিয়া অনুসরণ করুন।",
+        "institution_en": "ISSB",
+        "institution_bn": "ISSB"
+      }
+    ],
+    "Law & Justice": [
+      {
+        "step_en": "Choose an approved law route",
+        "step_bn": "অনুমোদিত আইন বিষয়ক পথ বেছে নিন",
+        "route_en": "Check degree, enrolment and professional requirements.",
+        "route_bn": "ডিগ্রি, তালিকাভুক্তি ও পেশাগত শর্ত যাচাই করুন।",
+        "institution_en": "du.ac.bd",
+        "institution_bn": "du.ac.bd"
+      }
+    ]
   },
   "subjects": {
     "default": [
-      {"subject_en":"Psychology","subject_bn":"মনোবিজ্ঞান","entry_en":"University unit admission test","entry_bn":"বিশ্ববিদ্যালয় ইউনিট ভর্তি পরীক্ষা","leads_en":"Counselling and human services","leads_bn":"কাউন্সেলিং ও মানবসেবা"},
-      {"subject_en":"Education / Child Development","subject_bn":"শিক্ষা / শিশু বিকাশ","entry_en":"University admission process","entry_bn":"বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া","leads_en":"Teaching and special education","leads_bn":"শিক্ষকতা ও বিশেষ শিক্ষা"}
+      {
+        "subject_en": "Psychology",
+        "subject_bn": "মনোবিজ্ঞান",
+        "entry_en": "University unit admission test",
+        "entry_bn": "বিশ্ববিদ্যালয় ইউনিট ভর্তি পরীক্ষা",
+        "leads_en": "Counselling and human services",
+        "leads_bn": "কাউন্সেলিং ও মানবসেবা"
+      },
+      {
+        "subject_en": "Education / Child Development",
+        "subject_bn": "শিক্ষা / শিশু বিকাশ",
+        "entry_en": "University admission process",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া",
+        "leads_en": "Teaching and special education",
+        "leads_bn": "শিক্ষকতা ও বিশেষ শিক্ষা"
+      }
     ],
-    "Education & Training": [{"subject_en":"Education / Child Development","subject_bn":"শিক্ষা / শিশু বিকাশ","entry_en":"University admission process","entry_bn":"বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া","leads_en":"Teaching and special education","leads_bn":"শিক্ষকতা ও বিশেষ শিক্ষা"}],
-    "Human Services & Development": [{"subject_en":"Social Work","subject_bn":"সমাজকর্ম","entry_en":"University admission process","entry_bn":"বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া","leads_en":"Counselling and development work","leads_bn":"কাউন্সেলিং ও উন্নয়ন কাজ"}],
-    "Arts, Media & Communication": [{"subject_en":"Fine Arts","subject_bn":"চারুকলা","entry_en":"Charukala admission test plus portfolio","entry_bn":"চারুকলা ভর্তি পরীক্ষা ও পোর্টফোলিও","leads_en":"Creative education and art therapy","leads_bn":"সৃজনশীল শিক্ষা ও আর্ট থেরাপি"}],
-    "Engineering & Technology": [{"subject_en":"Engineering","subject_bn":"প্রকৌশল","entry_en":"University admission test","entry_bn":"বিশ্ববিদ্যালয় ভর্তি পরীক্ষা","leads_en":"Engineering and technical roles","leads_bn":"প্রকৌশল ও কারিগরি পেশা"}],
-    "Information & Communication Technology": [{"subject_en":"Computer Science","subject_bn":"কম্পিউটার বিজ্ঞান","entry_en":"University admission test","entry_bn":"বিশ্ববিদ্যালয় ভর্তি পরীক্ষা","leads_en":"Technology and digital roles","leads_bn":"প্রযুক্তি ও ডিজিটাল পেশা"}],
-    "Health Science": [{"subject_en":"Health Science","subject_bn":"স্বাস্থ্য বিজ্ঞান","entry_en":"Approved programme admission","entry_bn":"অনুমোদিত প্রোগ্রামে ভর্তি","leads_en":"Health and community services","leads_bn":"স্বাস্থ্য ও কমিউনিটি সেবা"}],
-    "Finance, Business & Administration": [{"subject_en":"Business Studies","subject_bn":"ব্যবসায় শিক্ষা","entry_en":"University admission test","entry_bn":"বিশ্ববিদ্যালয় ভর্তি পরীক্ষা","leads_en":"Business and administration","leads_bn":"ব্যবসা ও প্রশাসন"}],
-    "Government & Public Service": [{"subject_en":"Public Administration","subject_bn":"লোকপ্রশাসন","entry_en":"University admission process","entry_bn":"বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া","leads_en":"Public service and administration","leads_bn":"সরকারি সেবা ও প্রশাসন"}],
-    "Agriculture & Natural Resources": [{"subject_en":"Agriculture","subject_bn":"কৃষি","entry_en":"Agricultural university admission","entry_bn":"কৃষি বিশ্ববিদ্যালয় ভর্তি","leads_en":"Agriculture and field services","leads_bn":"কৃষি ও মাঠসেবা"}],
-    "Hospitality & Tourism": [{"subject_en":"Hospitality Management","subject_bn":"হসপিটালিটি ব্যবস্থাপনা","entry_en":"Institution admission process","entry_bn":"প্রতিষ্ঠানের ভর্তি প্রক্রিয়া","leads_en":"Hospitality and tourism","leads_bn":"হসপিটালিটি ও পর্যটন"}],
-    "Transport, Logistics & Maritime": [{"subject_en":"Maritime or Logistics Studies","subject_bn":"মেরিটাইম বা লজিস্টিকস","entry_en":"Approved institute admission","entry_bn":"অনুমোদিত প্রতিষ্ঠানে ভর্তি","leads_en":"Transport and maritime operations","leads_bn":"পরিবহন ও মেরিটাইম পরিচালনা"}],
-    "Manufacturing & RMG": [{"subject_en":"Textile or Technical Studies","subject_bn":"টেক্সটাইল বা কারিগরি শিক্ষা","entry_en":"Technical institute admission","entry_bn":"কারিগরি প্রতিষ্ঠানে ভর্তি","leads_en":"Manufacturing and quality roles","leads_bn":"উৎপাদন ও মান নিয়ন্ত্রণ"}],
-    "Construction & Skilled Trades": [{"subject_en":"Technical Diploma","subject_bn":"কারিগরি ডিপ্লোমা","entry_en":"BTEB or skills admission route","entry_bn":"BTEB বা দক্ষতা ভর্তি পথ","leads_en":"Construction and skilled trades","leads_bn":"নির্মাণ ও দক্ষ ট্রেড"}],
-    "Defence & Public Safety": [{"subject_en":"Public Safety Studies","subject_bn":"জননিরাপত্তা শিক্ষা","entry_en":"Official selection process","entry_bn":"সরকারি বাছাই প্রক্রিয়া","leads_en":"Defence and public safety","leads_bn":"প্রতিরক্ষা ও জননিরাপত্তা"}],
-    "Law & Justice": [{"subject_en":"Law","subject_bn":"আইন","entry_en":"University admission process","entry_bn":"বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া","leads_en":"Law and justice","leads_bn":"আইন ও বিচার"}]
+    "Education & Training": [
+      {
+        "subject_en": "Education / Child Development",
+        "subject_bn": "শিক্ষা / শিশু বিকাশ",
+        "entry_en": "University admission process",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া",
+        "leads_en": "Teaching and special education",
+        "leads_bn": "শিক্ষকতা ও বিশেষ শিক্ষা"
+      }
+    ],
+    "Human Services & Development": [
+      {
+        "subject_en": "Social Work",
+        "subject_bn": "সমাজকর্ম",
+        "entry_en": "University admission process",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া",
+        "leads_en": "Counselling and development work",
+        "leads_bn": "কাউন্সেলিং ও উন্নয়ন কাজ"
+      }
+    ],
+    "Arts, Media & Communication": [
+      {
+        "subject_en": "Fine Arts",
+        "subject_bn": "চারুকলা",
+        "entry_en": "Charukala admission test plus portfolio",
+        "entry_bn": "চারুকলা ভর্তি পরীক্ষা ও পোর্টফোলিও",
+        "leads_en": "Creative education and art therapy",
+        "leads_bn": "সৃজনশীল শিক্ষা ও আর্ট থেরাপি"
+      }
+    ],
+    "Engineering & Technology": [
+      {
+        "subject_en": "Engineering",
+        "subject_bn": "প্রকৌশল",
+        "entry_en": "University admission test",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি পরীক্ষা",
+        "leads_en": "Engineering and technical roles",
+        "leads_bn": "প্রকৌশল ও কারিগরি পেশা"
+      }
+    ],
+    "Information & Communication Technology": [
+      {
+        "subject_en": "Computer Science",
+        "subject_bn": "কম্পিউটার বিজ্ঞান",
+        "entry_en": "University admission test",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি পরীক্ষা",
+        "leads_en": "Technology and digital roles",
+        "leads_bn": "প্রযুক্তি ও ডিজিটাল পেশা"
+      }
+    ],
+    "Health Science": [
+      {
+        "subject_en": "Health Science",
+        "subject_bn": "স্বাস্থ্য বিজ্ঞান",
+        "entry_en": "Approved programme admission",
+        "entry_bn": "অনুমোদিত প্রোগ্রামে ভর্তি",
+        "leads_en": "Health and community services",
+        "leads_bn": "স্বাস্থ্য ও কমিউনিটি সেবা"
+      }
+    ],
+    "Finance, Business & Administration": [
+      {
+        "subject_en": "Business Studies",
+        "subject_bn": "ব্যবসায় শিক্ষা",
+        "entry_en": "University admission test",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি পরীক্ষা",
+        "leads_en": "Business and administration",
+        "leads_bn": "ব্যবসা ও প্রশাসন"
+      }
+    ],
+    "Government & Public Service": [
+      {
+        "subject_en": "Public Administration",
+        "subject_bn": "লোকপ্রশাসন",
+        "entry_en": "University admission process",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া",
+        "leads_en": "Public service and administration",
+        "leads_bn": "সরকারি সেবা ও প্রশাসন"
+      }
+    ],
+    "Agriculture & Natural Resources": [
+      {
+        "subject_en": "Agriculture",
+        "subject_bn": "কৃষি",
+        "entry_en": "Agricultural university admission",
+        "entry_bn": "কৃষি বিশ্ববিদ্যালয় ভর্তি",
+        "leads_en": "Agriculture and field services",
+        "leads_bn": "কৃষি ও মাঠসেবা"
+      }
+    ],
+    "Hospitality & Tourism": [
+      {
+        "subject_en": "Hospitality Management",
+        "subject_bn": "হসপিটালিটি ব্যবস্থাপনা",
+        "entry_en": "Institution admission process",
+        "entry_bn": "প্রতিষ্ঠানের ভর্তি প্রক্রিয়া",
+        "leads_en": "Hospitality and tourism",
+        "leads_bn": "হসপিটালিটি ও পর্যটন"
+      }
+    ],
+    "Transport, Logistics & Maritime": [
+      {
+        "subject_en": "Maritime or Logistics Studies",
+        "subject_bn": "মেরিটাইম বা লজিস্টিকস",
+        "entry_en": "Approved institute admission",
+        "entry_bn": "অনুমোদিত প্রতিষ্ঠানে ভর্তি",
+        "leads_en": "Transport and maritime operations",
+        "leads_bn": "পরিবহন ও মেরিটাইম পরিচালনা"
+      }
+    ],
+    "Manufacturing & RMG": [
+      {
+        "subject_en": "Textile or Technical Studies",
+        "subject_bn": "টেক্সটাইল বা কারিগরি শিক্ষা",
+        "entry_en": "Technical institute admission",
+        "entry_bn": "কারিগরি প্রতিষ্ঠানে ভর্তি",
+        "leads_en": "Manufacturing and quality roles",
+        "leads_bn": "উৎপাদন ও মান নিয়ন্ত্রণ"
+      }
+    ],
+    "Construction & Skilled Trades": [
+      {
+        "subject_en": "Technical Diploma",
+        "subject_bn": "কারিগরি ডিপ্লোমা",
+        "entry_en": "BTEB or skills admission route",
+        "entry_bn": "BTEB বা দক্ষতা ভর্তি পথ",
+        "leads_en": "Construction and skilled trades",
+        "leads_bn": "নির্মাণ ও দক্ষ ট্রেড"
+      }
+    ],
+    "Defence & Public Safety": [
+      {
+        "subject_en": "Public Safety Studies",
+        "subject_bn": "জননিরাপত্তা শিক্ষা",
+        "entry_en": "Official selection process",
+        "entry_bn": "সরকারি বাছাই প্রক্রিয়া",
+        "leads_en": "Defence and public safety",
+        "leads_bn": "প্রতিরক্ষা ও জননিরাপত্তা"
+      }
+    ],
+    "Law & Justice": [
+      {
+        "subject_en": "Law",
+        "subject_bn": "আইন",
+        "entry_en": "University admission process",
+        "entry_bn": "বিশ্ববিদ্যালয় ভর্তি প্রক্রিয়া",
+        "leads_en": "Law and justice",
+        "leads_bn": "আইন ও বিচার"
+      }
+    ]
   },
   "preferences": [
-    {"key":"ORD","trait_en":"Organisation and punctuality","trait_bn":"সংগঠন ও সময়নিষ্ঠা"},
-    {"key":"SOC","trait_en":"Comfort working in a team","trait_bn":"দলে কাজের স্বাচ্ছন্দ্য"},
-    {"key":"RES","trait_en":"Handling pressure","trait_bn":"চাপ সামলানো"},
-    {"key":"NOV","trait_en":"Openness to new things","trait_bn":"নতুন বিষয়ে আগ্রহ"},
-    {"key":"COP","trait_en":"Patience with repetitive work","trait_bn":"পুনরাবৃত্ত কাজে ধৈর্য"}
+    {
+      "key": "ORD",
+      "trait_en": "Organisation and punctuality",
+      "trait_bn": "সংগঠন ও সময়নিষ্ঠা"
+    },
+    {
+      "key": "SOC",
+      "trait_en": "Comfort working in a team",
+      "trait_bn": "দলে কাজের স্বাচ্ছন্দ্য"
+    },
+    {
+      "key": "RES",
+      "trait_en": "Handling pressure",
+      "trait_bn": "চাপ সামলানো"
+    },
+    {
+      "key": "NOV",
+      "trait_en": "Openness to new things",
+      "trait_bn": "নতুন বিষয়ে আগ্রহ"
+    },
+    {
+      "key": "COP",
+      "trait_en": "Patience with repetitive work",
+      "trait_bn": "পুনরাবৃত্ত কাজে ধৈর্য"
+    }
   ],
   "activities": {
-    "R":[{"type_en":"Realistic","type_bn":"বাস্তবধর্মী","recommendation_en":"Join a practical project or field activity.","recommendation_bn":"ব্যবহারিক প্রকল্প বা মাঠভিত্তিক কার্যক্রমে যোগ দিন।"}],
-    "I":[{"type_en":"Investigative","type_bn":"অনুসন্ধানী","recommendation_en":"Join a research, debate or data-literacy club.","recommendation_bn":"গবেষণা, বিতর্ক বা ডেটা-সাক্ষরতা ক্লাবে যোগ দিন।"}],
-    "A":[{"type_en":"Artistic","type_bn":"শিল্পমনস্ক","recommendation_en":"Build an art, writing or expressive-arts portfolio.","recommendation_bn":"আর্ট, লেখা বা এক্সপ্রেসিভ-আর্টস পোর্টফোলিও তৈরি করুন।"}],
-    "S":[{"type_en":"Social","type_bn":"সামাজিক","recommendation_en":"Volunteer with children or peer-support activities.","recommendation_bn":"শিশুদের নিয়ে বা সহপাঠী সহায়তা কার্যক্রমে স্বেচ্ছাসেবা করুন।"}],
-    "E":[{"type_en":"Enterprising","type_bn":"উদ্যোগী","recommendation_en":"Lead a small community or student project.","recommendation_bn":"ছোট কমিউনিটি বা শিক্ষার্থী প্রকল্পে নেতৃত্ব দিন।"}],
-    "C":[{"type_en":"Conventional","type_bn":"সুশৃঙ্খল","recommendation_en":"Maintain a planning and documentation system.","recommendation_bn":"পরিকল্পনা ও নথি সংরক্ষণের ব্যবস্থা বজায় রাখুন।"}]
+    "R": [
+      {
+        "type_en": "Realistic",
+        "type_bn": "বাস্তবধর্মী",
+        "recommendation_en": "Join a practical project or field activity.",
+        "recommendation_bn": "ব্যবহারিক প্রকল্প বা মাঠভিত্তিক কার্যক্রমে যোগ দিন।"
+      }
+    ],
+    "I": [
+      {
+        "type_en": "Investigative",
+        "type_bn": "অনুসন্ধানী",
+        "recommendation_en": "Join a research, debate or data-literacy club.",
+        "recommendation_bn": "গবেষণা, বিতর্ক বা ডেটা-সাক্ষরতা ক্লাবে যোগ দিন।"
+      }
+    ],
+    "A": [
+      {
+        "type_en": "Artistic",
+        "type_bn": "শিল্পমনস্ক",
+        "recommendation_en": "Build an art, writing or expressive-arts portfolio.",
+        "recommendation_bn": "আর্ট, লেখা বা এক্সপ্রেসিভ-আর্টস পোর্টফোলিও তৈরি করুন।"
+      }
+    ],
+    "S": [
+      {
+        "type_en": "Social",
+        "type_bn": "সামাজিক",
+        "recommendation_en": "Volunteer with children or peer-support activities.",
+        "recommendation_bn": "শিশুদের নিয়ে বা সহপাঠী সহায়তা কার্যক্রমে স্বেচ্ছাসেবা করুন।"
+      }
+    ],
+    "E": [
+      {
+        "type_en": "Enterprising",
+        "type_bn": "উদ্যোগী",
+        "recommendation_en": "Lead a small community or student project.",
+        "recommendation_bn": "ছোট কমিউনিটি বা শিক্ষার্থী প্রকল্পে নেতৃত্ব দিন।"
+      }
+    ],
+    "C": [
+      {
+        "type_en": "Conventional",
+        "type_bn": "সুশৃঙ্খল",
+        "recommendation_en": "Maintain a planning and documentation system.",
+        "recommendation_bn": "পরিকল্পনা ও নথি সংরক্ষণের ব্যবস্থা বজায় রাখুন।"
+      }
+    ]
   },
   "onlineResources": {
-    "courses":[
-      {"name":"Muktapaath","access_en":"Free","access_bn":"বিনামূল্যে","use_en":"Bangla skills and employability","use_bn":"বাংলা দক্ষতা ও কর্মযোগ্যতা"},
-      {"name":"Coursera","access_en":"Free / paid","access_bn":"ফ্রি / পেইড","use_en":"Psychology and research foundations","use_bn":"মনোবিজ্ঞান ও গবেষণার ভিত্তি"}
+    "courses": [
+      {
+        "name": "Muktapaath",
+        "access_en": "Free",
+        "access_bn": "বিনামূল্যে",
+        "use_en": "Bangla skills and employability",
+        "use_bn": "বাংলা দক্ষতা ও কর্মযোগ্যতা"
+      },
+      {
+        "name": "Coursera",
+        "access_en": "Free / paid",
+        "access_bn": "ফ্রি / পেইড",
+        "use_en": "Psychology and research foundations",
+        "use_bn": "মনোবিজ্ঞান ও গবেষণার ভিত্তি"
+      }
     ],
-    "youtube":[
-      {"name":"CrashCourse Psychology","access_en":"YouTube","access_bn":"ইউটিউব","use_en":"Concept refreshers","use_bn":"ধারণা পুনরালোচনা"},
-      {"name":"10 Minute School","access_en":"YouTube","access_bn":"ইউটিউব","use_en":"Study and communication","use_bn":"পড়াশোনা ও যোগাযোগ"},
-      {"name":"Psych2Go","access_en":"YouTube","access_bn":"ইউটিউব","use_en":"Accessible psychology explanations","use_bn":"সহজ মনোবিজ্ঞান ব্যাখ্যা"}
+    "youtube": [
+      {
+        "name": "CrashCourse Psychology",
+        "access_en": "YouTube",
+        "access_bn": "ইউটিউব",
+        "use_en": "Concept refreshers",
+        "use_bn": "ধারণা পুনরালোচনা"
+      },
+      {
+        "name": "10 Minute School",
+        "access_en": "YouTube",
+        "access_bn": "ইউটিউব",
+        "use_en": "Study and communication",
+        "use_bn": "পড়াশোনা ও যোগাযোগ"
+      },
+      {
+        "name": "Psych2Go",
+        "access_en": "YouTube",
+        "access_bn": "ইউটিউব",
+        "use_en": "Accessible psychology explanations",
+        "use_bn": "সহজ মনোবিজ্ঞান ব্যাখ্যা"
+      }
     ]
   },
   "strengthenNow": {
-    "default":{"en":["English","Writing in Bangla","Basic statistics / SPSS"],"bn":["ইংরেজি","বাংলায় লেখা","মৌলিক পরিসংখ্যান / SPSS"]},
-    "Education & Training":{"en":["English","Writing in Bangla","Communication and presenting"],"bn":["ইংরেজি","বাংলায় লেখা","যোগাযোগ ও উপস্থাপনা"]},
-    "Human Services & Development":{"en":["Active listening","Writing in Bangla","Basic statistics / SPSS"],"bn":["সক্রিয় শ্রবণ","বাংলায় লেখা","মৌলিক পরিসংখ্যান / SPSS"]},
-    "Arts, Media & Communication":{"en":["Writing in Bangla","Portfolio practice","Communication and presenting"],"bn":["বাংলায় লেখা","পোর্টফোলিও অনুশীলন","যোগাযোগ ও উপস্থাপনা"]},
-    "Engineering & Technology":{"en":["Mathematics","Digital tools","Technical communication"],"bn":["গণিত","ডিজিটাল টুল","কারিগরি যোগাযোগ"]},
-    "Information & Communication Technology":{"en":["English","Programming practice","Basic statistics / SPSS"],"bn":["ইংরেজি","প্রোগ্রামিং অনুশীলন","মৌলিক পরিসংখ্যান / SPSS"]},
-    "Health Science":{"en":["Communication and presenting","Basic statistics / SPSS","English"],"bn":["যোগাযোগ ও উপস্থাপনা","মৌলিক পরিসংখ্যান / SPSS","ইংরেজি"]},
-    "Finance, Business & Administration":{"en":["Basic statistics / SPSS","English","Presentation"],"bn":["মৌলিক পরিসংখ্যান / SPSS","ইংরেজি","উপস্থাপনা"]},
-    "Government & Public Service":{"en":["Writing in Bangla","English","Basic statistics / SPSS"],"bn":["বাংলায় লেখা","ইংরেজি","মৌলিক পরিসংখ্যান / SPSS"]},
-    "Agriculture & Natural Resources":{"en":["Basic statistics / SPSS","Field documentation","English"],"bn":["মৌলিক পরিসংখ্যান / SPSS","মাঠের নথি তৈরি","ইংরেজি"]},
-    "Hospitality & Tourism":{"en":["English","Communication and presenting","Customer service"],"bn":["ইংরেজি","যোগাযোগ ও উপস্থাপনা","গ্রাহকসেবা"]},
-    "Transport, Logistics & Maritime":{"en":["English","Planning","Basic statistics / SPSS"],"bn":["ইংরেজি","পরিকল্পনা","মৌলিক পরিসংখ্যান / SPSS"]},
-    "Manufacturing & RMG":{"en":["Technical communication","Basic statistics / SPSS","Planning"],"bn":["কারিগরি যোগাযোগ","মৌলিক পরিসংখ্যান / SPSS","পরিকল্পনা"]},
-    "Construction & Skilled Trades":{"en":["Technical communication","Digital tools","Safety practice"],"bn":["কারিগরি যোগাযোগ","ডিজিটাল টুল","নিরাপত্তা অনুশীলন"]},
-    "Defence & Public Safety":{"en":["Communication and presenting","Planning","English"],"bn":["যোগাযোগ ও উপস্থাপনা","পরিকল্পনা","ইংরেজি"]},
-    "Law & Justice":{"en":["Writing in Bangla","English","Research methods"],"bn":["বাংলায় লেখা","ইংরেজি","গবেষণা পদ্ধতি"]}
+    "default": {
+      "en": [
+        "English",
+        "Writing in Bangla",
+        "Basic statistics / SPSS"
+      ],
+      "bn": [
+        "ইংরেজি",
+        "বাংলায় লেখা",
+        "মৌলিক পরিসংখ্যান / SPSS"
+      ]
+    },
+    "Education & Training": {
+      "en": [
+        "English",
+        "Writing in Bangla",
+        "Communication and presenting"
+      ],
+      "bn": [
+        "ইংরেজি",
+        "বাংলায় লেখা",
+        "যোগাযোগ ও উপস্থাপনা"
+      ]
+    },
+    "Human Services & Development": {
+      "en": [
+        "Active listening",
+        "Writing in Bangla",
+        "Basic statistics / SPSS"
+      ],
+      "bn": [
+        "সক্রিয় শ্রবণ",
+        "বাংলায় লেখা",
+        "মৌলিক পরিসংখ্যান / SPSS"
+      ]
+    },
+    "Arts, Media & Communication": {
+      "en": [
+        "Writing in Bangla",
+        "Portfolio practice",
+        "Communication and presenting"
+      ],
+      "bn": [
+        "বাংলায় লেখা",
+        "পোর্টফোলিও অনুশীলন",
+        "যোগাযোগ ও উপস্থাপনা"
+      ]
+    },
+    "Engineering & Technology": {
+      "en": [
+        "Mathematics",
+        "Digital tools",
+        "Technical communication"
+      ],
+      "bn": [
+        "গণিত",
+        "ডিজিটাল টুল",
+        "কারিগরি যোগাযোগ"
+      ]
+    },
+    "Information & Communication Technology": {
+      "en": [
+        "English",
+        "Programming practice",
+        "Basic statistics / SPSS"
+      ],
+      "bn": [
+        "ইংরেজি",
+        "প্রোগ্রামিং অনুশীলন",
+        "মৌলিক পরিসংখ্যান / SPSS"
+      ]
+    },
+    "Health Science": {
+      "en": [
+        "Communication and presenting",
+        "Basic statistics / SPSS",
+        "English"
+      ],
+      "bn": [
+        "যোগাযোগ ও উপস্থাপনা",
+        "মৌলিক পরিসংখ্যান / SPSS",
+        "ইংরেজি"
+      ]
+    },
+    "Finance, Business & Administration": {
+      "en": [
+        "Basic statistics / SPSS",
+        "English",
+        "Presentation"
+      ],
+      "bn": [
+        "মৌলিক পরিসংখ্যান / SPSS",
+        "ইংরেজি",
+        "উপস্থাপনা"
+      ]
+    },
+    "Government & Public Service": {
+      "en": [
+        "Writing in Bangla",
+        "English",
+        "Basic statistics / SPSS"
+      ],
+      "bn": [
+        "বাংলায় লেখা",
+        "ইংরেজি",
+        "মৌলিক পরিসংখ্যান / SPSS"
+      ]
+    },
+    "Agriculture & Natural Resources": {
+      "en": [
+        "Basic statistics / SPSS",
+        "Field documentation",
+        "English"
+      ],
+      "bn": [
+        "মৌলিক পরিসংখ্যান / SPSS",
+        "মাঠের নথি তৈরি",
+        "ইংরেজি"
+      ]
+    },
+    "Hospitality & Tourism": {
+      "en": [
+        "English",
+        "Communication and presenting",
+        "Customer service"
+      ],
+      "bn": [
+        "ইংরেজি",
+        "যোগাযোগ ও উপস্থাপনা",
+        "গ্রাহকসেবা"
+      ]
+    },
+    "Transport, Logistics & Maritime": {
+      "en": [
+        "English",
+        "Planning",
+        "Basic statistics / SPSS"
+      ],
+      "bn": [
+        "ইংরেজি",
+        "পরিকল্পনা",
+        "মৌলিক পরিসংখ্যান / SPSS"
+      ]
+    },
+    "Manufacturing & RMG": {
+      "en": [
+        "Technical communication",
+        "Basic statistics / SPSS",
+        "Planning"
+      ],
+      "bn": [
+        "কারিগরি যোগাযোগ",
+        "মৌলিক পরিসংখ্যান / SPSS",
+        "পরিকল্পনা"
+      ]
+    },
+    "Construction & Skilled Trades": {
+      "en": [
+        "Technical communication",
+        "Digital tools",
+        "Safety practice"
+      ],
+      "bn": [
+        "কারিগরি যোগাযোগ",
+        "ডিজিটাল টুল",
+        "নিরাপত্তা অনুশীলন"
+      ]
+    },
+    "Defence & Public Safety": {
+      "en": [
+        "Communication and presenting",
+        "Planning",
+        "English"
+      ],
+      "bn": [
+        "যোগাযোগ ও উপস্থাপনা",
+        "পরিকল্পনা",
+        "ইংরেজি"
+      ]
+    },
+    "Law & Justice": {
+      "en": [
+        "Writing in Bangla",
+        "English",
+        "Research methods"
+      ],
+      "bn": [
+        "বাংলায় লেখা",
+        "ইংরেজি",
+        "গবেষণা পদ্ধতি"
+      ]
+    }
   },
   "dataStatus": {
     "occupations": "COMPLETE - 85/85 from client source",
@@ -3189,5 +3755,6 @@
     "AUT": "Autonomy & Creativity",
     "BAL": "Balance & Well-being"
   },
-  "fraudWarning_en": "Before accepting any job offer abroad, verify the recruiting agency with BMET. Never pay advance fees without official government verification."
+  "fraudWarning_en": "Before accepting any job offer abroad, verify the recruiting agency with BMET. Never pay advance fees without official government verification.",
+  "coverImage": "https://res.cloudinary.com/dpwuivub7/image/upload/v1794113832/fa6af8b5-9e79-44d0-9af8-3559534186f5_afiaof.jpg"
 }
